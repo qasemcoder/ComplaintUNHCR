@@ -1,6 +1,7 @@
   
 const mysql = require('mysql');
-const DB_NAME = 'complent';
+const DB_NAME = 'complent'
+
 
 function createDatabaseConnection(callback) {
     const connection = mysql.createConnection({
