@@ -1,7 +1,7 @@
 const 
     express = require('express'),
     bodyParser = require('body-parser'),
-    {Send_To_Database,get_name_ind_from_Database,get_All_from_Database,get_search_from_Database} = require('../compliantRepo/repo')
+    {Send_To_Database,get_name_ind_from_Database,get_All_from_Database,get_search_from_Database,get_All_News_from_Database} = require('../compliantRepo/repo')
 
 
     let app = express();
@@ -66,5 +66,19 @@ const
             }
         })
     })
+
+
+    app.get('/news' , (req , res)=>{
+        get_All_News_from_Database((error , result)=>{
+            if(error){
+                console.log(error)
+                res.sendStatus(404)
+            }else{
+                res.send(result)
+                console.log(result)
+            }
+        })
+    })
+    
 
     module.exports = app;

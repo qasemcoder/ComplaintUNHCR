@@ -1,0 +1,47 @@
+.list_left{
+    width: 30%;
+    height: auto;
+    background-color: red;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    float: right;
+    padding:10px;
+}
+.list{
+    width: 90%;
+    background-color: blue;
+    border-radius: 10px;
+    height: 50px;
+    text-align: center;
+    padding:10px;
+    margin: 5px;
+    cursor: pointer;
+    /* border-bottom: 2px solid white; */
+}
+.name{
+    font-weight: bold;
+    color: white;
+    font-size: 1.3rem;
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    float: left;
+}
+.ind{
+    font-weight: bold;
+    color: white;
+    font-size: 1.3rem;
+    width: 48%;
+    height: auto;
+    margin-top: -40px;
+    padding: 10px;
+    float: right;
+}
+.search{
+width: 90%;
+padding: 10px;
+height: 30px;
+direction: rtl;
+font-size: 1.2rem;
+
+}
