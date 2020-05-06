@@ -15,7 +15,7 @@
         float: right;
         padding:10px;
     }
-    .list{
+    .list,.liste{
         width: 90%;
         background-color: blue;
         border-radius: 10px;
@@ -82,6 +82,7 @@ let list = document.getElementById('for');
 let name_left = document.getElementById('name-left');
 let ind_left = document.getElementById('ind-left');
 let elemnts = document.getElementsByClassName('list')
+let items = document.getElementsByClassName('liste')
 let content = document.getElementById('content')
 let URL = 'http://localhost:3000/'
 
@@ -105,6 +106,7 @@ for(let i = 0; i < data.length; i++) {
 for(let i = 0; i < data.length; i++) {
 
 elemnts[i].addEventListener('click' , e=>{
+    
     elemnts[i].style.backgroundColor = 'black'
     let id = e.target.parentElement.getAttribute('id');
     console.log(id)
@@ -153,17 +155,54 @@ function get_search() {
     }).then(data=>{
         console.log(data)
         for(let i = 0; i < data.length; i++) {
-    list.innerHTML += `
-        <div class="list" id = "${data[i].id}">
+    list.innerHTML = `
+        <div class="liste" io = "${data[i].id}">
         <span class="name">${data[i].name}</span> <span class="ind">${data[i].ind}</span>
     </div>
         `
+}
+
+for(let i = 0; i < data.length; i++) {
+
+    items[i].addEventListener('click' , e=>{
+        console.log(e)
+    items[i].style.backgroundColor = 'black'
+    let id = e.target.parentElement.getAttribute('io');
+    console.log(id)
+    localStorage.setItem('io' , id)
+    get_search_information();
+})
 }
     })
 }
 
 
-
+function get_search_information() {
+    let id = localStorage.getItem('io');
+    fetch(URL + 'searche/'+ id,{
+        method : 'get'
+    }).then(re=>{
+        return re.json()
+    }).then(data=>{
+        console.log(data)
+for(let i = 0; i < data.length; i++) {
+    content.innerHTML = `
+    <div class="content">
+        name : <span id="name">${data[i].name}</span> <br><br>
+        phone : <span id="phone">${data[i].phone}</span><br><br>
+        dis : <span id="dis">${data[i].dis}</span><br><br>
+        home : <span id="home">${data[i].home}</span><br><br>
+        block : <span id="block">${data[i].block}</span><br><br>
+        case : <span id="case">${data[i].casenumber}</span><br><br>
+        ind : <span id="ind">${data[i].ind}</span><br><br>
+        reg : <span id="reg">${data[i].reg}</span><br><br>
+    the complaint : <span id="complaint">${data[i].message}</span>
+    </div>
+        `
+      
+}
+    })
+    }
 
 </script>
 </body>

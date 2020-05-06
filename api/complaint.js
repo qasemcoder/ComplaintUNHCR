@@ -67,4 +67,17 @@ const
         })
     })
 
+    app.get('/searche/:id' , (req , res)=>{
+        let id = req.params.id
+        get_All_from_Database(id,(error , result)=>{
+            if(error){
+                console.log(error)
+                res.sendStatus(404)
+            }else{
+                res.send(result)
+                console.log(result)
+            }
+        })
+    })
+
     module.exports = app;
