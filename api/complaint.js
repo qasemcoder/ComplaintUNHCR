@@ -67,9 +67,15 @@ const
         })
     })
 
+<<<<<<< HEAD
 
     app.get('/news' , (req , res)=>{
         get_All_News_from_Database((error , result)=>{
+=======
+    app.get('/searche/:id' , (req , res)=>{
+        let id = req.params.id
+        get_All_from_Database(id,(error , result)=>{
+>>>>>>> 5c8fd915d96e05a7c321e4828d49a76aec5eee4b
             if(error){
                 console.log(error)
                 res.sendStatus(404)
@@ -79,6 +85,9 @@ const
             }
         })
     })
+<<<<<<< HEAD
     
+=======
+>>>>>>> 5c8fd915d96e05a7c321e4828d49a76aec5eee4b
 
     module.exports = app;
