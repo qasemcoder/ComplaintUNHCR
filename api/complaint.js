@@ -1,18 +1,53 @@
 const
     express = require('express'),
     bodyParser = require('body-parser'),
+     bc = require('bcryptjs'),
     {
         Send_To_Database,
         get_name_ind_from_Database,
         get_All_from_Database,
         get_search_from_Database,
         get_All_News_from_Database,
-        Send_news_To_Database
+        Send_news_To_Database,
+        Send_Login_To_Database
     } = require('../compliantRepo/repo')
 
 
 let app = express();
 app.use(bodyParser.json());
+
+
+app.post('/login' , (req , res)=>{
+    let email = req.body.email
+    let pass = req.body.pass
+console.log(email , pass)
+let passs = '$2a$08$JqMWD0M4FyeALZ8.C921quNM/OsKAGD0k/BChCG/6CTyXTk0qoj9a'
+    bc.compare(pass , passs , (err , success)=>{
+        if(err){
+            console.log(error);
+            res.sendStatus(401)
+        }else{
+            console.log(success)
+            Send_Login_To_Database(email , (error , data)=>{
+                if(error){
+                    console.log(error);
+                    res.sendStatus(401)
+                }else{
+                    console.log(data)
+                    res.send({data:data},{status:200})
+                }
+                    })
+        }
+    })
+    
+        
+
+
+
+
+
+
+})
 
 app.post("/", (req, res) => {
     // console.log(req.body)
