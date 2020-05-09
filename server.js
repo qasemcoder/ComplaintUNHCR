@@ -27,4 +27,7 @@ app.get( '/login', (req, res, next) => {
 app.get( '/addnews', (req, res, next) => {
     res.sendFile(__dirname + '/public/formNews.html');
 })
+app.get( '/editnews', (req, res, next) => {
+    res.sendFile(__dirname + '/public/all_News.html');
+})
 app.listen(port, () => console.log(`server is running on port ${port}`))

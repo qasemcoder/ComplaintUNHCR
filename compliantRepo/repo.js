@@ -65,7 +65,7 @@ function get_search_from_Database(ind,callback) {
 
 
 function get_All_News_from_Database(callback) {
-    let sql = `select news from ${DB_NAME}.news;`
+    let sql = `select id,news from ${DB_NAME}.news;`
    
     createDatabaseConnection((connectError, connection) => {
         console.log(connectError);
