@@ -63,6 +63,20 @@ function get_search_from_Database(ind,callback) {
     });
 }
 
+function get_ALL_search_from_Database(id,callback) {
+    let sql = `select * from ${DB_NAME}.save where id = ${id};`
+    createDatabaseConnection((connectError, connection) => {
+        console.log(connectError);
+        if (connectError) {
+            callback(connectError, null);
+        } else {
+            connection.query(sql, (error, result) => {
+                    callback(error,result);
+                connection.end()
+            });
+        }
+    });
+}
 
 function get_All_News_from_Database(callback) {
     let sql = `select id,news from ${DB_NAME}.news;`
@@ -98,8 +112,8 @@ function Send_news_To_Database(newNews,callback) {
 }
 
 
-function Send_Login_To_Database(email, pass,callback) {
-    let sql = `select pass from ${DB_NAME}.users where email = ${email} and pass = ${pass}`
+function Send_Login_To_Database( callback) {
+    let sql = `select pass from ${DB_NAME}.users`
    
     createDatabaseConnection((connectError, connection) => {
         console.log(connectError);
@@ -107,13 +121,28 @@ function Send_Login_To_Database(email, pass,callback) {
             // callback(connectError, null);
         } else {
             connection.query(sql, (error, result) => {
-                    // callback(error,result);
+                    callback(error,result);
                 connection.end()
             });
         }
     });
 }
 
+// 
+function Delete_N_Database(id,callback) {
+    let sql = `DELETE FROM ${DB_NAME}.news WHERE (id = '${id}');`
+   
+    createDatabaseConnection((connectError, connection) => {
+        console.log(connectError);
+        if (connectError) {
+            // callback(connectError, null);
+        } else {
+            connection.query(sql, (error, result) => {
+                    callback(error,result);
+                connection.end()
+            });
+        }
+    });
+}
 
-
-module.exports= {Send_Login_To_Database,Send_To_Database,get_name_ind_from_Database,get_All_from_Database,get_search_from_Database, get_All_News_from_Database, Send_news_To_Database}
+module.exports= {get_ALL_search_from_Database,Delete_N_Database,Send_Login_To_Database,Send_To_Database,get_name_ind_from_Database,get_All_from_Database,get_search_from_Database, get_All_News_from_Database, Send_news_To_Database}

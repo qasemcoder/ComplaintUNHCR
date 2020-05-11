@@ -1,6 +1,7 @@
 const
     express = require('express'),
     bodyParser = require('body-parser'),
+    jsonweb = require('jsonwebtoken'),
      bc = require('bcryptjs'),
     {
         Send_To_Database,
@@ -9,44 +10,40 @@ const
         get_search_from_Database,
         get_All_News_from_Database,
         Send_news_To_Database,
-        Send_Login_To_Database
+        Send_Login_To_Database,
+        Delete_N_Database,
+        get_ALL_search_from_Database
     } = require('../compliantRepo/repo')
 
 
 let app = express();
 app.use(bodyParser.json());
 
-
+let salt = '29p72w4rpowuhgpoayjh-t0938yn6tvp90w38y6nhtv-093v8y'
 app.post('/login' , (req , res)=>{
     let email = req.body.email
     let pass = req.body.pass
 console.log(email , pass)
 let passs = '$2a$08$JqMWD0M4FyeALZ8.C921quNM/OsKAGD0k/BChCG/6CTyXTk0qoj9a'
+let token = jsonweb.sign({email : email , pass:pass , hash:passs},salt)
+console.log(token)
     bc.compare(pass , passs , (err , success)=>{
         if(err){
             console.log(error);
             res.sendStatus(401)
         }else{
             console.log(success)
-            Send_Login_To_Database(email , (error , data)=>{
+            Send_Login_To_Database((error , data)=>{
                 if(error){
                     console.log(error);
                     res.sendStatus(401)
                 }else{
                     console.log(data)
-                    res.send({data:data},{status:200})
+                    res.send({data:data,status:200,token:token})
                 }
                     })
         }
     })
-    
-        
-
-
-
-
-
-
 })
 
 app.post("/", (req, res) => {
@@ -108,6 +105,19 @@ app.get('/search/:ind', (req, res) => {
         }
     })  
 })
+app.get('/searche/:id', (req, res) => {
+    let id = req.params.id
+    get_ALL_search_from_Database(id, (error, result) => {
+        if (error) {
+            console.log(error)
+            res.sendStatus(404)
+        } else {
+            res.send(result)
+            console.log(result)
+        }
+    })  
+})
+
 
 app.get('/news', (req, res) => {
     get_All_News_from_Database((error, result) => {
@@ -138,7 +148,18 @@ app.post("/addnews", (req, res) => {
     })
 })
 
-
+app.delete("/delItem/:id" , (req , res)=>{
+    let id = req.params.id;
+Delete_N_Database(id , (error , result)=>{
+    if (error) {
+        console.log(error)
+        res.sendStatus(400)
+    } else {
+        res.send(result)
+        console.log(result)
+    }
+})
+})
 
 
 module.exports = app;
