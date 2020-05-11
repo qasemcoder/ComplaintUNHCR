@@ -3,62 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dmin.css">
     <title>admin</title>
 </head>
 <style>
-    .list_left{
-        width: 30%;
-        height: auto;
-        background-color: red;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        float: right;
-        padding:10px;
-    }
-    .list,.liste{
-        width: 90%;
-        background-color: blue;
-        border-radius: 10px;
-        height: 50px;
-        text-align: center;
-        padding:10px;
-        margin: 5px;
-        cursor: pointer;
-        /* border-bottom: 2px solid white; */
-    }
-    .name{
-        font-weight: bold;
-        color: white;
-        font-size: 1.3rem;
-        width: 50%;
-        height: auto;
-        padding: 10px;
-        float: left;
-    }
-    .ind{
-        font-weight: bold;
-        color: white;
-        font-size: 1.3rem;
-        width: 48%;
-        height: auto;
-        margin-top: -40px;
-        padding: 10px;
-        float: right;
-    }
-    .search{
-width: 90%;
-padding: 10px;
-height: 30px;
-direction: rtl;
-font-size: 1.2rem;
-
-    }
+  
 </style>
 <body>
     <!-- list left side -->
 <div class="list_left">
     <div class="first-list" >
-        <button onclick="get_search()"> search </button>
+        <button onclick="get_search()" id="buSer"> search </button>
         <input type="text" class="search" id="search">
     </div >
     <div id="for">
@@ -145,6 +100,13 @@ for(let i = 0; i < data.length; i++) {
     }
 // document.body.getAttributeNode
 
+document.getElementById('search').addEventListener('keydown' , e=>{
+    if(e.code == 'Enter' || e.code == 'NumpadEnter') {
+        get_search();
+    }
+})
+
+
 function get_search() {
     list.innerHTML = '';
     let search = document.getElementById("search");
@@ -155,7 +117,7 @@ function get_search() {
     }).then(data=>{
         console.log(data)
         for(let i = 0; i < data.length; i++) {
-    list.innerHTML = `
+    list.innerHTML += `
         <div class="liste" io = "${data[i].id}">
         <span class="name">${data[i].name}</span> <span class="ind">${data[i].ind}</span>
     </div>

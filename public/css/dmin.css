@@ -1,17 +1,25 @@
+#buSer{
+    margin-bottom: 7px;
+    margin-left: 3%;
+    height: 24px;
+    width: 57px;
+    border-radius: 10px;
+}
+
 .list_left{
-    width: 30%;
+    width: 24%;
     height: auto;
-    background-color: red;
-    border-top-left-radius: 10px;
+    background-color: #ff0000b0;
+    border-top-left-radius: 16px;
     border-top-right-radius: 10px;
     float: right;
-    padding:10px;
+    padding: 5px;
 }
 .list{
     width: 90%;
     background-color: blue;
     border-radius: 10px;
-    height: 50px;
+    height: 35px;
     text-align: center;
     padding:10px;
     margin: 5px;
@@ -22,9 +30,9 @@
     font-weight: bold;
     color: white;
     font-size: 1.3rem;
-    width: 50%;
+    width: 47%;
     height: auto;
-    padding: 10px;
+    padding: 3px;
     float: left;
 }
 .ind{
@@ -33,7 +41,7 @@
     font-size: 1.3rem;
     width: 48%;
     height: auto;
-    margin-top: -40px;
+    margin-top: -34px;
     padding: 10px;
     float: right;
 }
