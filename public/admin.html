@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,82 +8,76 @@
     <title>admin</title>
 </head>
 <style>
-  
 </style>
+
 <body>
     <!-- list left side -->
-<div class="list_left">
-    <div class="first-list" >
-        <button onclick="get_search()" id="buSer"> search </button>
-        <input type="text" class="search" id="search">
-    </div >
-    <div id="for">
-
+    <div class="list_left">
+        <div class="first-list">
+            <button onclick="get_search()" id="buSer"> search </button>
+            <input type="text" class="search" id="search">
+        </div>
+        <div id="for">
+        </div>
     </div>
-</div>
+    <div id="conDes">
+        <div id="content" style="position: fixed;">
+        </div>
+    </div>
+    <script>
+        function dis_Con_Des() {
+            document.getElementById('conDes').style.display = 'block'
+        }
 
-<!-- the content on th middle -->
-<div id="content" style="position: fixed;">
-    
-</div>
+        function close_Con_Des() {
+            document.getElementById('conDes').style.display = 'none'
+        }
+        let list = document.getElementById('for');
+        let name_left = document.getElementById('name-left');
+        let ind_left = document.getElementById('ind-left');
+        let elemnts = document.getElementsByClassName('list')
+        let items = document.getElementsByClassName('liste')
+        let content = document.getElementById('content')
+        let URL = 'http://localhost:3000/'
+        get_name_ind();
 
-
-
-
-
-
-<script>
-
-let list = document.getElementById('for');
-let name_left = document.getElementById('name-left');
-let ind_left = document.getElementById('ind-left');
-let elemnts = document.getElementsByClassName('list')
-let items = document.getElementsByClassName('liste')
-let content = document.getElementById('content')
-let URL = 'http://localhost:3000/'
-
-get_name_ind();
-
-function get_name_ind() {
-    fetch(URL + 'leftList',{
-        method : 'get'
-    }).then(re=>{
-        return re.json()
-    }).then(data=>{
-        console.log(data)
-        
-for(let i = 0; i < data.length; i++) {
-    list.innerHTML += `
-        <div class="list" id = "${data[i].id}">
+        function get_name_ind() {
+            fetch(URL + 'leftList', {
+                method: 'get'
+            }).then(re => {
+                return re.json()
+            }).then(data => {
+                console.log(data)
+                for (let i = 0; i < data.length; i++) {
+                    list.innerHTML += `
+        <div class="list" id = "${data[i].id}" onclick='dis_Con_Des();'>
         <span class="name">${data[i].name}</span> <span class="ind">${data[i].ind}</span>
     </div>
         `
-}
-for(let i = 0; i < data.length; i++) {
+                }
+                for (let i = 0; i < data.length; i++) {
+                    elemnts[i].addEventListener('click', e => {
+                        elemnts[i].style.backgroundColor = 'black'
+                        let id = e.target.parentElement.getAttribute('id');
+                        console.log(id)
+                        localStorage.setItem('id', id)
+                        get_all();
+                    })
+                }
+            })
+        }
 
-elemnts[i].addEventListener('click' , e=>{
-    
-    elemnts[i].style.backgroundColor = 'black'
-    let id = e.target.parentElement.getAttribute('id');
-    console.log(id)
-    localStorage.setItem('id' , id)
-    get_all();
-})
-}
-    })
-}
-
-function get_all() {
-    let id = localStorage.getItem('id');
-    fetch(URL + 'content/'+ id,{
-        method : 'get'
-    }).then(re=>{
-        return re.json()
-    }).then(data=>{
-        console.log(data)
-for(let i = 0; i < data.length; i++) {
-    content.innerHTML = `
-    <div class="content">
+        function get_all() {
+            let id = localStorage.getItem('id');
+            fetch(URL + 'content/' + id, {
+                method: 'get'
+            }).then(re => {
+                return re.json()
+            }).then(data => {
+                console.log(data)
+                for (let i = 0; i < data.length; i++) {
+                    content.innerHTML = `
+    <div class="contents" id='conInformation'>
         name : <span id="name">${data[i].name}</span> <br><br>
         phone : <span id="phone">${data[i].phone}</span><br><br>
         dis : <span id="dis">${data[i].dis}</span><br><br>
@@ -92,64 +87,58 @@ for(let i = 0; i < data.length; i++) {
         ind : <span id="ind">${data[i].ind}</span><br><br>
         reg : <span id="reg">${data[i].reg}</span><br><br>
     the complaint : <span id="complaint">${data[i].message}</span>
+    <img src="./useImage/close.jpg" title="close complaint" id="cloClom" onclick='close_Con_Des();'>
     </div>
         `
-      
-}
-    })
-    }
-// document.body.getAttributeNode
+                }
+            })
+        }
+        document.getElementById('search').addEventListener('keydown', e => {
+            if (e.code == 'Enter' || e.code == 'NumpadEnter') {
+                get_search();
+            }
+        })
 
-document.getElementById('search').addEventListener('keydown' , e=>{
-    if(e.code == 'Enter' || e.code == 'NumpadEnter') {
-        get_search();
-    }
-})
+        function get_search() {
+            list.innerHTML = '';
+            let search = document.getElementById("search");
+            fetch(URL + 'search/' + search.value, {
+                method: 'get'
+            }).then(re => {
+                return re.json()
+            }).then(data => {
+                console.log(data)
+                for (let i = 0; i < data.length; i++) {
+                    list.innerHTML +=
+                        `<div class="liste" io = "${data[i].id}" onclick=' dis_Con_Des();'>
+                                <span class="name">${data[i].name}</span> 
+                                <span class="ind">${data[i].ind}</span>    
+                            </div>`
+                }
+                for (let i = 0; i < data.length; i++) {
+                    items[i].addEventListener('click', e => {
+                        console.log(e)
+                        items[i].style.backgroundColor = 'black'
+                        let id = e.target.parentElement.getAttribute('io');
+                        console.log(id)
+                        localStorage.setItem('io', id)
+                        get_search_information();
+                    })
+                }
+            })
+        }
 
-
-function get_search() {
-    list.innerHTML = '';
-    let search = document.getElementById("search");
-    fetch( URL + 'search/' + search.value ,{
-        method:'get'
-    }).then(re=>{
-        return re.json()
-    }).then(data=>{
-        console.log(data)
-        for(let i = 0; i < data.length; i++) {
-    list.innerHTML += `
-        <div class="liste" io = "${data[i].id}">
-        <span class="name">${data[i].name}</span> <span class="ind">${data[i].ind}</span>
-    </div>
-        `
-}
-
-for(let i = 0; i < data.length; i++) {
-
-    items[i].addEventListener('click' , e=>{
-        console.log(e)
-    items[i].style.backgroundColor = 'black'
-    let id = e.target.parentElement.getAttribute('io');
-    console.log(id)
-    localStorage.setItem('io' , id)
-    get_search_information();
-})
-}
-    })
-}
-
-
-function get_search_information() {
-    let id = localStorage.getItem('io');
-    fetch(URL + 'searche/'+ id,{
-        method : 'get'
-    }).then(re=>{
-        return re.json()
-    }).then(data=>{
-        console.log(data)
-for(let i = 0; i < data.length; i++) {
-    content.innerHTML = `
-    <div class="content">
+        function get_search_information() {
+            let id = localStorage.getItem('io');
+            fetch(URL + 'searche/' + id, {
+                method: 'get'
+            }).then(re => {
+                return re.json()
+            }).then(data => {
+                console.log(data)
+                for (let i = 0; i < data.length; i++) {
+                    content.innerHTML += `
+    <div class="contents" id='conInformation'>
         name : <span id="name">${data[i].name}</span> <br><br>
         phone : <span id="phone">${data[i].phone}</span><br><br>
         dis : <span id="dis">${data[i].dis}</span><br><br>
@@ -159,13 +148,13 @@ for(let i = 0; i < data.length; i++) {
         ind : <span id="ind">${data[i].ind}</span><br><br>
         reg : <span id="reg">${data[i].reg}</span><br><br>
     the complaint : <span id="complaint">${data[i].message}</span>
+    <img src="./useImage/close.jpg" title="close complaint" id="cloClom" onclick='close_Con_Des();'>
     </div>
         `
-      
-}
-    })
-    }
-
-</script>
+                }
+            })
+        }
+    </script>
 </body>
+
 </html>
