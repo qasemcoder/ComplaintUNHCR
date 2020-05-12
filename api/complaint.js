@@ -12,7 +12,8 @@ const
         Send_news_To_Database,
         Send_Login_To_Database,
         Delete_N_Database,
-        get_ALL_search_from_Database
+        get_ALL_search_from_Database,
+        check_email
     } = require('../compliantRepo/repo')
 
 
@@ -25,26 +26,22 @@ app.post('/login' , (req , res)=>{
     let pass = req.body.pass
 console.log(email , pass)
 let passs = '$2a$08$JqMWD0M4FyeALZ8.C921quNM/OsKAGD0k/BChCG/6CTyXTk0qoj9a'
+
 let token = jsonweb.sign({email : email , pass:pass , hash:passs},salt)
 console.log(token)
     bc.compare(pass , passs , (err , success)=>{
         if(err){
             console.log(error);
             res.sendStatus(401)
-        }else{
-            console.log(success)
-            Send_Login_To_Database((error , data)=>{
-                if(error){
-                    console.log(error);
-                    res.sendStatus(401)
-                }else{
-                    console.log(data)
-                    res.send({data:data,status:200,token:token})
-                }
-                    })
+        }else if(success == false){
+           res.send({status:401})
+        } else if(success == true){
+      res.send({status:200,token:token , result:success})      
         }
+            
     })
 })
+
 
 app.post("/", (req, res) => {
     // console.log(req.body)

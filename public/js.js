@@ -1,3 +1,5 @@
+
+
 let reg_list = document.getElementById('reg_list')
 let URL = 'http://localhost:3000/'
 

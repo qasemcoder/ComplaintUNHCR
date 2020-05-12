@@ -7,10 +7,6 @@ app.use(express.static(__dirname+'/public'))
 const save = require('./api/complaint')
 app.use(save)
 
-// app.get(routBase, (req, res) => {
-//     res.sendFile(__dirname + '/public/index.html');
-
-// })
 app.get( '/', (req, res, next) => {
     res.sendFile(__dirname + '/public/home.html');
 })

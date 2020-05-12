@@ -1,3 +1,12 @@
+if(localStorage.getItem('token') == undefined || localStorage.getItem('token') == null){
+    window.location.href = "../login/login.html";
+}
+
+function logout() {
+    localStorage.removeItem('token')
+    window.location.href = '../login/login.html'
+}
+
 let URL = 'http://localhost:3000/'
 
 let header = new Headers();

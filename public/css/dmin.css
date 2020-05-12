@@ -1,115 +1,47 @@
-body * {
-    cursor: url(../useImage/pointer.ico), default;
-}
-
-#buSer {
-    margin-bottom: 7px;
-    margin-left: 3%;
-    height: 24px;
-    width: 71px;
-    font-size: 18px;
-    border-radius: 10px;
-}
-
-
-
-#conDes {
-    position: fixed;
-    width:96%   ;
-    z-index: +1;
-    border: 2px solid;
-    border-radius: 15px;
-    height: 100%;
-    padding: 15px;
-    margin-top: 0px;
-    margin-left: 1%;
-    background-color: wheat;
-    margin-top: 0px;
-    margin-left: 0%;
-    background-color: wheat;
-    display: none;
-}
-
-
-.list_left {
-    width: 29%;
+.list_left{
+    width: 30%;
     height: auto;
-    background-color: #ff0000b0;
-    border-top-left-radius: 26px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 26px;
+    background-color: red;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     float: right;
-    padding: 5px;
+    padding:10px;
 }
-
-.list {
+.list{
     width: 90%;
     background-color: blue;
     border-radius: 10px;
     height: 50px;
     text-align: center;
-    padding: 10px;
+    padding:10px;
     margin: 5px;
     cursor: pointer;
     /* border-bottom: 2px solid white; */
 }
-
-.name {
+.name{
     font-weight: bold;
     color: white;
     font-size: 1.3rem;
-    width: 47%;
+    width: 50%;
     height: auto;
-    padding: 3px;
+    padding: 10px;
     float: left;
 }
-
-.ind {
+.ind{
     font-weight: bold;
     color: white;
     font-size: 1.3rem;
     width: 48%;
     height: auto;
-    margin-top: -34px;
+    margin-top: -40px;
     padding: 10px;
     float: right;
 }
-
-.search {
-    width: 90%;
-    padding: 10px;
-    height: 30px;
-    direction: rtl;
-    font-size: 1.2rem;
-
-}
-
-.liste {
-    background-color: black;
-    cursor: url(../useImage/pointer.ico), default;
-}
-
-.contents{
-    border: 1px solid;
-    width: 283%;
-    border-radius: 20px;
-    margin-left: 8%;
-    margin-top: 68px;
-}
-
-#conInformation{
-    padding: 40px;
-}
-#cloClom {
-    float: right;
-    width: 40px;
-    height: 40px;
-    margin-right: -1px;
-    margin-top: -25%;
-    border-radius: 12px;
-    position: relative;
-    
-}
-#infoSearch{
+.search{
+width: 90%;
+padding: 10px;
+height: 30px;
+direction: rtl;
+font-size: 1.2rem;
 
 }

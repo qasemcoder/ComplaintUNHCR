@@ -6,7 +6,7 @@
 #divMarq {
     padding: 15px;
     cursor: pointer;
-    /* border: 2px solid; */
+    border: 2px solid;
     width: auto;
     height: auto;
     margin-bottom: 15px;
@@ -30,7 +30,7 @@
         right: 40px;
     }
 }
-.imgDel {
+#imgDel {
     cursor: pointer;
     float: right;
     z-index: +1;
