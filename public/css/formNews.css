@@ -1,6 +1,120 @@
-.addNewNews{
-    ba
+body{
+    background: linear-gradient(to right, blue, white,rgb(43, 66, 170),white,rgb(104, 104, 196));
 }
-#but{
 
+#butLog{
+    border-radius: 10px;
+    width: 6.1%;
+    height: 26px;
+    font-size: 17px;
+    color: white;
+    background-color: black; 
+    cursor: url(../useImage/pointer.ico), default;
+}
+p {
+    margin-left: 31%;
+    margin-top: 1%;
+    margin-bottom: 0%;
+    font-size: 28px;
+}
+
+#newNews {
+    margin-left: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: 3px solid;
+    position: absolute;
+    border-radius: 29px;
+    width: 39%;
+    height: 48%;
+}
+
+#but {
+    margin-left: 46%;
+    margin-top: 27%;
+    height: 37px;
+    width: 153px;
+    border: 1px;
+    border-radius: 22px;
+    cursor: url(../useImage/pointer.ico), default;
+}
+body{
+  
+        cursor: url(../useImage/pointer.ico), default;
+    
+}
+/*RES*/
+/*---------------------------------------------------------*/
+@media only screen and (min-width: 320px) {
+    #butLog{
+        border-radius: 10px;
+        width: 24.1%;
+        height: 26px;
+        font-size: 17px;
+        color: white;
+        background-color: black; 
+        cursor: url(../useImage/pointer.ico), default;
+    }
+    p{
+        margin-left: 1%;
+        margin-top: 6%;
+        margin-bottom: 0%;
+        font-size: 19px;
+    }
+    #but{
+        margin-left: 32%;
+        margin-top: 63%;
+        height: 37px;
+        width: 153px;
+        border: 1px;
+        border-radius: 22px;
+        cursor: url(../useImage/pointer.ico), default;
+    }
+    #newNews{
+        margin-left: 12%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        border: 3px solid;
+        position: absolute;
+        border-radius: 29px;
+        width: 71%;
+        height: 28%
+    }
+}
+/*---------------------------------------------------------*/
+@media only screen and (min-width: 360px) {
+    #butLog{
+        border-radius: 10px;
+        width: 19.1%;
+        height: 26px;
+        font-size: 17px;
+        color: white;
+        background-color: black; 
+        cursor: url(../useImage/pointer.ico), default;
+    }
+    p{
+        margin-left: 1%;
+        margin-top: 6%;
+        margin-bottom: 0%;
+        font-size: 19px;
+    }
+    #but{
+        margin-left: 32%;
+        margin-top: 63%;
+        height: 37px;
+        width: 153px;
+        border: 1px;
+        border-radius: 22px;
+        cursor: url(../useImage/pointer.ico), default;
+    }
+    #newNews{
+        margin-left: 12%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        border: 3px solid;
+        position: absolute;
+        border-radius: 29px;
+        width: 71%;
+        height: 28%
+    }
 }
