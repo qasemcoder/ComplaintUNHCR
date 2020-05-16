@@ -4,98 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dmin.css">
-    <title>admin</title>
+    <link rel="stylesheet" href="./css/admin.css">
+    <title>Document</title>
 </head>
-<!-- <style>
-    .list_left{
-        width: 30%;
-        height: auto;
-        background-color: red;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        float: right;
-        padding:10px;
-    }
-    .list,.liste{
-        width: 90%;
-        background-color: blue;
-        border-radius: 10px;
-        height: 50px;
-        text-align: center;
-        padding:10px;
-        margin: 5px;
-        cursor: pointer;
-        /* border-bottom: 2px solid white; */
-    }
-    .name{
-        font-weight: bold;
-        color: white;
-        font-size: 1.3rem;
-        width: 50%;
-        height: auto;
-        padding: 10px;
-        float: left;
-    }
-    .ind{
-        font-weight: bold;
-        color: white;
-        font-size: 1.3rem;
-        width: 48%;
-        height: auto;
-        margin-top: -40px;
-        padding: 10px;
-        float: right;
-    }
-    .search{
-width: 90%;
-padding: 10px;
-height: 30px;
-direction: rtl;
-font-size: 1.2rem;
-
-    }
-</style> -->
 
 <body>
-    <nav class="nav" id="nav">
-        <span id="aLin">
-            <a href="./home.html">Home</a>
-            <a href="./formNews.html">Add New News</a>
-            <a href="./all_News.html"> All News</a></span>
-        <button id="butLog" onclick="logout()"> LogOut </button>
-    </nav>
+    <header class="header">
+        <h1 class="title">Dashboard</h1>
+    </header>
+    <div class="body">
+        <div class="list-div">
+            <button onclick="get_name_ind()" class="btn2">All</button>
 
-    <!-- list left side -->
-    <div class="list_left">
-        <div class="first-list">
-            <button onclick="get_search()"> search </button>
-            <input type="text" class="search" id="search">
+            <div class="tool">
+                <input type="search" id="search" class="search">
+                <button class="btn1" onclick="get_search()">search</button>
+            </div>
+            <div class="items" id="for">
+
+            </div>
         </div>
-        <div id="for">
-
+        <div class="data">
+            <div class="form">
+                <div class="header-p">
+                    INFO
+                </div>
+                <div id="content">
+                    <div class="name">
+                        <label>Name:</label><span>MOhammad</span>
+                    </div>
+                    <div class="phone">
+                        <label>phone:</label><span>0799099213</span>
+                    </div>
+                    <div class="cn">
+                        <label>case Number :</label><span>0799099213</span>
+                    </div>
+                    <div class="in">
+                        <label>invidual Number :</label><span>645-85465465</span>
+                    </div>
+                    <div class="ad">
+                        <label>Address :</label><span>in holes</span>
+                    </div>
+                    <div class="re">
+                        <label>Regarding :</label><span>fuck</span>
+                    </div>
+                    <div class="me">
+                        <label>Message  :</label>
+                        <br>
+                        <textarea disabled id="" class="text">
+                    
+                </textarea>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- the content on th middle -->
-    <div id="content" style="position: fixed;">
-
     </div>
     <script>
-        // if(localStorage.getItem('token') == undefined || localStorage.getItem('token') == null){
-        //     window.location.href = "../login/login.html";
+        //if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
+        //    window.location.href = "../login/login.html";
+        //}
+
+        //function logout() {
+        //  localStorage.removeItem('token')
+        //     window.location.href = '../login/login.html'
         // }
 
-        function logout() {
-            localStorage.removeItem('token')
-            window.location.href = '../login/login.html'
-        }
 
-
+        let search = document.getElementById('search');
         let list = document.getElementById('for');
+
         let name_left = document.getElementById('name-left');
         let ind_left = document.getElementById('ind-left');
-        let elemnts = document.getElementsByClassName('list')
+        let elemnts = document.getElementsByClassName('item')
         let items = document.getElementsByClassName('liste')
         let content = document.getElementById('content')
         let URL = 'http://localhost:3000/'
@@ -103,6 +83,7 @@ font-size: 1.2rem;
         get_name_ind();
 
         function get_name_ind() {
+            list.innerHTML = ""
             fetch(URL + 'leftList', {
                 method: 'get'
             }).then(re => {
@@ -111,18 +92,16 @@ font-size: 1.2rem;
                 console.log(data)
 
                 for (let i = 0; i < data.length; i++) {
-                    list.innerHTML += `
-        <div class="list" id = "${data[i].id}">
-        <span class="name">${data[i].name}</span> <span class="ind">${data[i].ind}</span>
-    </div>
-        `
+                    list.innerHTML += `<div class="item" id = "${data[i].id}">
+                <p>${data[i].name}</p>
+                <p>${data[i].ind}</p>
+            </div>`
+
                 }
-                for (let i = 0; i < data.length; i++) {
-
+                for (let i = 0; i < elemnts.length; i++) {
                     elemnts[i].addEventListener('click', e => {
-
                         elemnts[i].style.backgroundColor = 'black'
-                        let id = e.target.parentElement.getAttribute('id');
+                        let id = elemnts[i].getAttribute("id")
                         console.log(id)
                         localStorage.setItem('id', id)
                         get_all();
@@ -141,18 +120,32 @@ font-size: 1.2rem;
                 console.log(data)
                 for (let i = 0; i < data.length; i++) {
                     content.innerHTML = `
-    <div class="content">
-        name : <span id="name">${data[i].name}</span> <br><br>
-        phone : <span id="phone">${data[i].phone}</span><br><br>
-        dis : <span id="dis">${data[i].dis}</span><br><br>
-        home : <span id="home">${data[i].home}</span><br><br>
-        block : <span id="block">${data[i].block}</span><br><br>
-        case : <span id="case">${data[i].casenumber}</span><br><br>
-        ind : <span id="ind">${data[i].ind}</span><br><br>
-        reg : <span id="reg">${data[i].reg}</span><br><br>
-    the complaint : <span id="complaint">${data[i].message}</span>
-    </div>
-        `
+                    <div class="name">
+                        <label>Name:</label><span>${data[i].name}</span>
+                    </div>
+                    <div class="phone">
+                        <label>phone:</label><span>${data[i].phone}</span>
+                    </div>
+                    <div class="cn">
+                        <label>case Number :</label><span>${data[i].casenumber}</span>
+                    </div>
+                    <div class="in">
+                        <label>invidual Number :</label><span>${data[i].ind}</span>
+                    </div>
+                    <div class="ad">
+                        <label>Address :</label><span>${data[i].block}</span>
+                    </div>
+                    <div class="re">
+                        <label>Regarding :</label><span>${data[i].reg}</span>
+                    </div>
+                    <div class="me">
+                        <label>Message  :</label>
+                        <br>
+                        <textarea disabled id="" class="text">
+                            ${data[i].message}
+                    </textarea>
+                    </div>
+                `
 
                 }
             })
@@ -176,23 +169,23 @@ font-size: 1.2rem;
             }).then(data => {
                 console.log(data)
                 for (let i = 0; i < data.length; i++) {
-                    list.innerHTML += `
-        <div class="liste" io = "${data[i].id}">
-        <span class="name">${data[i].name}</span> <span class="ind">${data[i].ind}</span>
-    </div>
-        `
+                    list.innerHTML += `<div class="item" id = "${data[i].id}">
+                        <p>${data[i].name}</p>
+                        <p>${data[i].ind}</p>
+                    </div>`
                 }
 
                 for (let i = 0; i < data.length; i++) {
 
-                    items[i].addEventListener('click', e => {
-                        console.log(e)
-                        items[i].style.backgroundColor = 'black'
-                        let id = e.target.parentElement.getAttribute('io');
-                        console.log(id)
-                        localStorage.setItem('io', id)
-                        get_search_information();
-                    })
+                    for (let i = 0; i < elemnts.length; i++) {
+                        elemnts[i].addEventListener('click', e => {
+                            elemnts[i].style.backgroundColor = 'black'
+                            let id = elemnts[i].getAttribute("id")
+                            console.log(id)
+                            localStorage.setItem('id', id)
+                            get_all();
+                        })
+                    }
                 }
             })
         }
@@ -208,18 +201,18 @@ font-size: 1.2rem;
                 console.log(data)
                 for (let i = 0; i < data.length; i++) {
                     content.innerHTML = `
-    <div class="content">
-        name : <span id="name">${data[i].name}</span> <br><br>
-        phone : <span id="phone">${data[i].phone}</span><br><br>
-        dis : <span id="dis">${data[i].dis}</span><br><br>
-        home : <span id="home">${data[i].home}</span><br><br>
-        block : <span id="block">${data[i].block}</span><br><br>
-        case : <span id="case">${data[i].casenumber}</span><br><br>
-        ind : <span id="ind">${data[i].ind}</span><br><br>
-        reg : <span id="reg">${data[i].reg}</span><br><br>
-    the complaint : <span id="complaint">${data[i].message}</span>
-    </div>
-        `
+            <div class="content">
+                name : <span id="name">${data[i].name}</span> <br><br>
+                phone : <span id="phone">${data[i].phone}</span><br><br>
+                dis : <span id="dis">${data[i].dis}</span><br><br>
+                home : <span id="home">${data[i].home}</span><br><br>
+                block : <span id="block">${data[i].block}</span><br><br>
+                case : <span id="case">${data[i].casenumber}</span><br><br>
+                ind : <span id="ind">${data[i].ind}</span><br><br>
+                reg : <span id="reg">${data[i].reg}</span><br><br>
+            the complaint : <span id="complaint">${data[i].message}</span>
+            </div>
+                `
 
                 }
             })
