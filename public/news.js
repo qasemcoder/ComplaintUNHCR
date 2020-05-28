@@ -7,7 +7,7 @@ function logout() {
     window.location.href = '../login/login.html'
 }
 
-let URL = 'http://localhost:3000/'
+let URL = 'https://complaint-camp.herokuapp.com/'
 
 let header = new Headers();
 header.append('content-type', 'application/json');
