@@ -1,5 +1,5 @@
 
-   let URL = 'https://complaint-camp.herokuapp.com/'
+   let URL = 'https://complaint-campz.herokuapp.com/'
    let header = new Headers();
    header.append('content-type' , 'application/json');
 
@@ -26,7 +26,7 @@ return re.json();
         }else{
             alert('ok man')
             localStorage.setItem('token' , data.token)
-            open('https://complaint-camp.herokuapp.com/admin')
+            open('https://complaint-campz.herokuapp.com/admin')
         }
        })
 

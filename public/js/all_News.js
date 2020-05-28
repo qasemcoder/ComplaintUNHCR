@@ -7,7 +7,7 @@ function logout() {
 }
 let content = document.getElementById('mar')
 let del = document.getElementsByClassName('del')
-let URL = 'https://complaint-camp.herokuapp.com/'
+let URL = 'https://complaint-campz.herokuapp.com/'
 get_all_News()
 
 function get_all_News() {
