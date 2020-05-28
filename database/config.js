@@ -1,13 +1,19 @@
   
 const mysql = require('mysql');
-const DB_NAME = 'complent'
+const DB_NAME = 'sql12343938'
 
 
 function createDatabaseConnection(callback) {
+    // const connection = mysql.createConnection({
+    //     host: 'localhost',
+    //     user: 'root',
+    //     password: '12345',
+    //     database: DB_NAME,
+    // });
     const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '12345',
+        host: 'sql12.freemysqlhosting.net',
+        user: 'sql12343938',
+        password: 'WdtvBR9U8B',
         database: DB_NAME,
     });
 
