@@ -25,10 +25,9 @@ return re.json();
             alert('your email is wrong')
             email.style.borderBottomColor = 'red'
         }else{
-            alert('ok man')
             localStorage.setItem('token' , data.token)
-            // open('https://complaint-campz.herokuapp.com/admin')
-           open('http://localhost:3000/admin')
+            open('https://complaint-campz.herokuapp.com/admin')
+        //    open('http://localhost:3000/admin')
         }
        })
 

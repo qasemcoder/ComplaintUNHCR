@@ -12,8 +12,8 @@
     <header class="header">
         <h1 class="title">Dashboard</h1>
     </header>
-    <div class="body">
-        <div class="list-div">
+    <div class="body" id="body">
+        <!-- <div class="list-div">
             <button onclick="get_name_ind()" class="btn2">All</button>
 
             <div class="tool">
@@ -57,11 +57,58 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <script>
+        let body=document.getElementById("body")
         if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
            window.location.href = "../login/login.html";
+        }else{
+            body.innerHTML=`<div class="list-div">
+            <button onclick="get_name_ind()" class="btn2">All</button>
+
+            <div class="tool">
+                <input type="search" id="search" class="search">
+                <button class="btn1" onclick="get_search()">search</button>
+            </div>
+            <div class="items" id="for">
+
+            </div>
+        </div>
+        <div class="data">
+            <div class="form">
+                <div class="header-p">
+                    INFO
+                </div>
+                <div id="content">
+                    <div class="name">
+                        <label>Name:</label><span>MOhammad</span>
+                    </div>
+                    <div class="phone">
+                        <label>phone:</label><span>0799099213</span>
+                    </div>
+                    <div class="cn">
+                        <label>case Number :</label><span>0799099213</span>
+                    </div>
+                    <div class="in">
+                        <label>invidual Number :</label><span>645-85465465</span>
+                    </div>
+                    <div class="ad">
+                        <label>Address :</label><span>in holes</span>
+                    </div>
+                    <div class="re">
+                        <label>Regarding :</label><span>fuck</span>
+                    </div>
+                    <div class="me">
+                        <label>Message  :</label>
+                        <br>
+                        <textarea disabled id="" class="text">
+                    
+                </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>`
         }
 
         function logout() {
