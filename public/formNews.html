@@ -7,18 +7,29 @@
     <link rel="stylesheet" href="./css/formNews.css">
 </head>
 <body>
-    <button id="butLog" onclick="logout()"> LogOut </button>
-<button id="backHome" onclick="location.href='../admin'">Back To Home</button>
+    <header class="header">
+        <h1 class="title" onclick="location.href='../admin'">Back To Home</h1>
+        <a href="./home.html" class="linkHome">Home</a>
+        <a href="./all_News.html" class="linkAllNews">View All News</a>
+        <h1 class="LogOut" onclick="logout()">LogOut</h1>
+        <!-- <button id="butLog" onclick="logout()"> LogOut </button> -->
+        <!-- <button id="backHome" >Back To Home</button> -->
+    </header>
+ 
     <div class="cont">
         <P>Welcomre in page Add News to Home page</P>
         <div class="addNewNews">
             <textarea name="newNews" id="newNews" cols="30" rows="10"></textarea>
 
-            <button id="but"  onclick="send_news()">ADD News</button>
+            <button id="but"  onclick="send_news()"><b>ADD News</b></button>
             
         </div>
+     <div class="deloge" id="deloge">
+      <b>  <span id="spanVald"></span></b>
+        <span id="closeMess" onclick="closeMess()">x</span>
+     </div>
     </div>
-
+    
     <script src="news.js"></script>
 </body>
 </html>

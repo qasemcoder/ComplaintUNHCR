@@ -1,7 +1,7 @@
 
 
 let reg_list = document.getElementById('reg_list')
-let URL = 'http://localhost:3000/'
+let URL = 'https://complaint-campz.herokuapp.com/'
 
 let header = new Headers();
 header.append('content-type' , 'application/json');

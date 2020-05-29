@@ -11,6 +11,9 @@
 <body>
     <header class="header">
         <h1 class="title">Dashboard</h1>
+        <a href="./home.html" class="linkHome">Home</a>
+        <a href="./formNews.html" class="linkForm">ADD New News</a>
+        <a href="./all_News.html" class="linkAllNews">View All News</a>
     </header>
     <div class="body">
         <div class="list-div">
@@ -49,10 +52,10 @@
                         <label>Regarding :</label><span>fuck</span>
                     </div>
                     <div class="me">
-                        <label>Message  :</label>
+                        <label>Message :</label>
                         <br>
                         <textarea disabled id="" class="text">
-                    
+
                 </textarea>
                     </div>
                 </div>
@@ -60,14 +63,14 @@
         </div>
     </div>
     <script>
-        //if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
-        //    window.location.href = "../login/login.html";
-        //}
+        if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
+            window.location.href = "../login/login.html";
+        }
 
-        //function logout() {
-        //  localStorage.removeItem('token')
-        //     window.location.href = '../login/login.html'
-        // }
+        function logout() {
+            localStorage.removeItem('token')
+            window.location.href = '../login/login.html'
+        }
 
 
         let search = document.getElementById('search');
@@ -78,7 +81,8 @@
         let elemnts = document.getElementsByClassName('item')
         let items = document.getElementsByClassName('liste')
         let content = document.getElementById('content')
-        let URL = 'http://localhost:3000/'
+        // let URL = 'https://complaint-campz.herokuapp.com/'
+let URL = 'http://localhost:3000/'
 
         get_name_ind();
 
@@ -150,8 +154,6 @@
                 }
             })
         }
-        // document.body.getAttributeNode
-
         document.getElementById('search').addEventListener('keydown', e => {
             if (e.code == 'Enter' || e.code == 'NumpadEnter') {
                 get_search();

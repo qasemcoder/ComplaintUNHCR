@@ -20,6 +20,33 @@
     box-shadow: 2px 2px 5px 2px rgb(17, 17, 17);
     position: relative;
 }
+.linkHome{
+    text-decoration: none;
+    margin-left: 17%;
+    margin-top: -26px;
+    position: fixed;
+    color: white;
+    align-items: center;
+    font-size: 24px;
+}
+.linkForm{
+    text-decoration: none;
+    margin-left: 24%;
+    margin-top: -26px;
+    position: fixed;
+    color: white;
+    align-items: center;
+    font-size: 24px;
+}
+.linkAllNews{
+    text-decoration: none;
+    margin-left: 38%;
+    margin-top: -26px;
+    position: fixed;
+    color: white;
+    align-items: center;
+    font-size: 24px;
+}
 
 .title {
     color: white;
