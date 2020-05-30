@@ -16,6 +16,7 @@ function createDatabaseConnection(callback) {
     //     password: 'WdtvBR9U8B',
     //     database: DB_NAME,
     // });
+
     connection.connect(error => {
         if (callback) {
             callback(error, connection)

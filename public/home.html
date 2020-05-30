@@ -11,13 +11,13 @@
 
 <body>
     <div class="header" id="header">
-        <marquee behavior="" direction="" id="mar" onmouseover="this.stop()" onmouseout="this.start()">Welcome im
-            complaint UNHCR</marquee>
+        <marquee behavior="" direction="right" id="mar" onmouseover="this.stop()" onmouseout="this.start()"></marquee>
     </div>
     <div class="slid">
         <img name="slider" width="80%" height="450" id="imagrSlid">
     </div>
     <hr>
+   <div class="cardArt">
     <div class="divArt">
         <article>
             Jordan – Zaatari Refugee Camp
@@ -84,6 +84,7 @@
             wome
         </article>
     </div>
+   </div>
     <hr>
     <div class="card">
         <img src="images/image1.jpg" alt="Avatar" style="width:100%">
@@ -97,22 +98,22 @@
         <div class="dev1">
             <img src="/image_Developer/Qasem.jpg" alt="" id="dev1">
             <span>Qasem Mohammad</span>
-            <SPan>wEB Developer</SPan>
+            <SPan>Web Developer</SPan>
         </div>
         <div class="dev2">
             <img src="/image_Developer/Qasem.jpg" alt="" id="dev2">
             <span>Hamza Rashed</span>
-            <SPan>wEB Developer</SPan>
+            <SPan>Web Developer</SPan>
         </div>
         <div class="dev3">
-            <img src="/image_Developer/Qasem.jpg" alt="" id="dev3">
+            <img src="/image_Developer/moh.jpg" alt="" id="dev3">
             <span>Mohammad AL_Refai</span>
-            <SPan>wEB Developer</SPan>
+            <SPan>Web Developer</SPan>
         </div>
         <div class="dev4">
             <img src="/image_Developer/Qasem.jpg" alt="" id="dev4">
             <span>Hana AL_Basher</span>
-            <SPan>wEB Developer</SPan>
+            <SPan>Web Developer</SPan>
         </div>
     </div>
     <script src="./js/slid.js"></script>
@@ -132,7 +133,7 @@
                 console.log(data)
                 for (let i = 0; i < data.length; i++) {
                     content.innerHTML += `
-    <div id="divMarq">${data[i].news}</div> ` + ` <img src='/images/image2.png' id="imgHeader" width=30 height=20>`
+    <div id="divMarq">${data[i].news}</div> ` + ` <img src='/images/image2.png' id="imgHeader" width=20 height=20>`
                 }
             })
             

@@ -140,7 +140,7 @@ app.post("/addnews", (req, res) => {
             console.log(errore)
             res.sendStatus(400)
         } else {
-            res.send(succsessSend)
+            res.send({result:succsessSend , status : 200})
             console.log(succsessSend)
         }
     })

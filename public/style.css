@@ -11,10 +11,23 @@
 
 
 }
+#spanInfo{
+    font-size: 47px;
+    opacity: 0.2;
+    position: fixed;
+    margin-top: 11%;
+    margin-left: 31%;
+    border: 2px solid;
+    padding: 39px;
+    border-radius: 34px;
+
+}
 
 #content {
     border: solid green 5px;
     padding: 15px;
+    width: 52%;
+    margin-left: 22%;
 }
 
 #divMarq {
@@ -23,27 +36,18 @@
     border: 2px solid;
     width: auto;
     height: auto;
+    font-size: 25px;
     margin-bottom: 15px;
     text-transform: capitalize;
     text-align: center;
-    background: linear-gradient(to right, blue, red, yellow, white, yellow ,white);
+    background: rgb(53, 56, 216);
 }
 #divMarq {
     width: auto;
     height: auto;
-
     position: relative;
-    animation-name: example;
-    animation-duration: 1s;
 }
-@keyframes example {
-    25% {
-        background-color: yellow;
-        left: 40px;
-        top: 20px;
-        right: 40px;
-    }
-}
+
 .del {
     cursor: pointer;
     float: right;

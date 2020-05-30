@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
 //    let URL = 'https://complaint-campz.herokuapp.com/'
    let URL = 'http://localhost:3000/'
+=======
+   // let URL = 'https://complaint-campz.herokuapp.com/'
+let URL = 'http://localhost:3000/'
+>>>>>>> 3d99af99e45a60bdb8fce976f0a458a1de84d265
    let header = new Headers();
    header.append('content-type' , 'application/json');
 
@@ -26,8 +31,12 @@ return re.json();
             email.style.borderBottomColor = 'red'
         }else{
             localStorage.setItem('token' , data.token)
+<<<<<<< HEAD
             // open('https://complaint-campz.herokuapp.com/admin')
            open('http://localhost:3000/admin')
+=======
+            open('http://localhost:3000/admin')
+>>>>>>> 3d99af99e45a60bdb8fce976f0a458a1de84d265
         }
        })
 
