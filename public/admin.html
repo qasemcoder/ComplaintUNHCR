@@ -9,11 +9,14 @@
 </head>
 
 <body>
-    <header class="header">
+    <div id="b">
+
+   
+    <!-- <header class="header">
         <h1 class="title">Dashboard</h1>
     </header>
     <div class="body" id="body">
-        <!-- <div class="list-div">
+        <div class="list-div">
             <button onclick="get_name_ind()" class="btn2">All</button>
 
             <div class="tool">
@@ -57,14 +60,20 @@
                     </div>
                 </div>
             </div>
-        </div> -->
-    </div>
+        </div>
+    </div> -->
+</div>
     <script>
-        let body=document.getElementById("body")
-        if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
-           window.location.href = "../login/login.html";
-        }else{
-            body.innerHTML=`<div class="list-div">
+       
+        let body=document.getElementById("b")
+        // if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
+        //    window.location.href = "../login/login.html";
+        // }else{
+            body.innerHTML=` <header class="header">
+        <h1 class="title">Dashboard</h1>
+    </header>
+    <div class="body" id="body">
+        <div class="list-div">
             <button onclick="get_name_ind()" class="btn2">All</button>
 
             <div class="tool">
@@ -85,7 +94,7 @@
                         <label>Name:</label><span>MOhammad</span>
                     </div>
                     <div class="phone">
-                        <label>phone:</label><span>0799099213</span>
+                        <label>phone:   </label><span>0799099213</span>
                     </div>
                     <div class="cn">
                         <label>case Number :</label><span>0799099213</span>
@@ -97,7 +106,7 @@
                         <label>Address :</label><span>in holes</span>
                     </div>
                     <div class="re">
-                        <label>Regarding :</label><span>fuck</span>
+                        <label>Regarding :   </label><span>fuck</span>
                     </div>
                     <div class="me">
                         <label>Message  :</label>
@@ -108,8 +117,9 @@
                     </div>
                 </div>
             </div>
-        </div>`
-        }
+        </div>
+    </div>`
+        // }
 
         function logout() {
          localStorage.removeItem('token')
@@ -125,11 +135,13 @@
         let elemnts = document.getElementsByClassName('item')
         let items = document.getElementsByClassName('liste')
         let content = document.getElementById('content')
-        let URL = 'https://complaint-campz.herokuapp.com/'
-        // let URL = 'http://localhost:3000/'
+        // let URL = 'https://complaint-campz.herokuapp.com/'
+        let URL = 'http://localhost:3000/'
+let header = new Headers()
+header.append('content-type' , 'application/json')
 
         get_name_ind();
-
+        select_color();
         function get_name_ind() {
             list.innerHTML = ""
             fetch(URL + 'leftList', {
@@ -148,11 +160,13 @@
                 }
                 for (let i = 0; i < elemnts.length; i++) {
                     elemnts[i].addEventListener('click', e => {
-                        elemnts[i].style.backgroundColor = 'black'
+                        // elemnts[i].style.backgroundColor = 'black'
                         let id = elemnts[i].getAttribute("id")
                         console.log(id)
                         localStorage.setItem('id', id)
                         get_all();
+                        ChangeColor();
+                        // select_color();
                     })
                 }
             })
@@ -232,6 +246,7 @@
                             console.log(id)
                             localStorage.setItem('id', id)
                             get_all();
+                            ChangeColor();
                         })
                     }
                 }
@@ -265,6 +280,42 @@
                 }
             })
         }
+
+function ChangeColor() {
+    let id = localStorage.getItem('id')
+    fetch(URL + 'ChangeColor/'+id ,{
+        method : 'put',
+        headers : header
+    }).then(re=>{
+        return re.json()
+    }).then(data=>{
+        console.log(data)
+    })
+    select_color();
+}
+
+function select_color() {
+    fetch(URL + 'getelement' ,{
+        method : 'get'
+    }).then(re=>{
+        return re.json()
+    }).then(data=>{
+        console.log(data)
+            for (let i = 0; i < elemnts.length; i++) {
+                if(data[i].color == 1){
+                    // elemnts[i].addEventListener('click', e => {  
+                        elemnts[i].style.backgroundColor = 'black'
+                    // })
+                }
+                }
+        
+    })
+}
+
+
+
+
+
     </script>
 </body>
 

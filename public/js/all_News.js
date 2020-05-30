@@ -7,8 +7,8 @@ function logout() {
 }
 let content = document.getElementById('mar')
 let del = document.getElementsByClassName('del')
-let URL = 'https://complaint-campz.herokuapp.com/'
-// let URL = 'http://localhost:3000/'
+// let URL = 'https://complaint-campz.herokuapp.com/'
+let URL = 'http://localhost:3000/'
 get_all_News()
 
 function get_all_News() {
