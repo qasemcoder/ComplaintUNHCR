@@ -1,154 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <style>
-           .d-block{
-    height: 300px;
-    width: 600px;
-    padding: 20px;
-    margin-right: 40px;
-    }
-    #imageSlid{
-        margin-left: 2%;
-        border: 1px solid ;
-        border-radius: 13px;
-        margin-top: 20px;
-    }
-    .artic{
-        float:right;
-        height: 150px;
-        margin-right: 20%;
-        margin-top: 20px;
-    }
-    .card{
-        width: 100%;
-        height: 10%;
-    }
-    hr{
-        background-color: rgb(7, 5, 7);
-        margin-top: 150px;
-        
-        height: 1px;
-    }
-    #imgSocial{
-        width: 60px;
-        padding-left: 15px;
-    }
-    #imgSocialYou{
-        width: 100px;
-        padding-left: 15px;
-    }
-    .formR{
-        border: solid 1px;
-    width: 40%;
-    margin-left: 31%;
-    margin-top: 40px;
-    }
-    .form-style-2{
-        max-width: 500px;
-        padding: 20px 12px 10px 20px;
-        font: 13px Arial, Helvetica, sans-serif;
-    }
-    .form-style-2-heading{
-        font-weight: bold;
-        font-style: italic;
-        border-bottom: 2px solid #ddd;
-        margin-bottom: 20px;
-        font-size: 15px;
-        padding-bottom: 3px;
-    }
-    .form-style-2 label{
-        display: block;
-        margin: 0px 0px 15px 0px;
-    }
-    .form-style-2 label > span{
-        width: 100px;
-        font-weight: bold;
-        float: left;
-        padding-top: 8px;
-        padding-right: 5px;
-    }
-    .form-style-2 span.required{
-        color:red;
-    }
-    .form-style-2 .tel-number-field{
-        width: 40px;
-        text-align: center;
-    }
-    .form-style-2 input.input-field, .form-style-2 .select-field{
-        width: 70%;	
-    }
-    .form-style-2 input.input-field, 
-    .form-style-2 .tel-number-field, 
-    .form-style-2 .textarea-field, 
-     .form-style-2 .select-field{
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        border: 1px solid #C2C2C2;
-        box-shadow: 1px 1px 4px #EBEBEB;
-        -moz-box-shadow: 1px 1px 4px #EBEBEB;
-        -webkit-box-shadow: 1px 1px 4px #EBEBEB;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        padding: 7px;
-        outline: none;
-    }
-    .form-style-2 .input-field:focus, 
-    .form-style-2 .tel-number-field:focus, 
-    .form-style-2 .textarea-field:focus,  
-    .form-style-2 .select-field:focus{
-        border: 1px solid #0C0;
-    }
-    .form-style-2 .textarea-field{
-        height:100px;
-        width: 65%;
-    }
-    .form-style-2 input[type=submit],
-    .form-style-2 input[type=button]{
-        border: none;
-        padding: 8px 15px 8px 15px;
-        background: #FF8500;
-        color: #fff;
-        box-shadow: 1px 1px 4px #DADADA;
-        -moz-box-shadow: 1px 1px 4px #DADADA;
-        -webkit-box-shadow: 1px 1px 4px #DADADA;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        margin-left: 25%;
-    }
-    .form-style-2 input[type=submit]:hover,
-    .form-style-2 input[type=button]:hover{
-        background: #EA7B00;
-        color: #fff;
-    }
-   </style>
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="shortcut icon" href="./useImage/icon.jpg" type="image/x-icon" sizes="20x20">
+    </style>
+    <title>Complaint Form</title>
 </head>
+
 <body>
     <div class="formR">
         <div class="form-style-2">
             <div class="form-style-2-heading">Provide your information</div>
             <div>
                 <label for="field1"><span>Name <span class="required">*</span></span><input type="text"
-                        class="input-field" name="username" id="name" /></label>
+                        class="input-field" name="username" id="name" oninput="checkUsernameReqEx()" placeholder="ادخل اسم مكون من ثلاث مقاطع" /></label>
 
                 <label for="field2"><span>Phone <span class="required">*</span></span><input type="text"
-                        class="input-field" name="phone" id="phone" /></label>
+                        class="input-field" name="phone" id="phone" placeholder="07********"
+                        oninput="CheckPhoneByRegExp()" /></label>
 
-                <label for="field2"><span>case Number <span class="required">*</span></span><input type="text"
-                        class="input-field" name="casenumber" id="casea" placeholder="000-00C00000" /></label>
+                <label for="field2"><span>Case Number <span class="required">*</span></span><input type="text"
+                        class="input-field" name="casenumber" id="casea" placeholder="000-00C00000"
+                        oninput="ChecCaseNumberForUserByRegExp()" /></label>
 
-                <label for="field2"><span>invidual Number <span class="required">*</span></span><input type="text"
-                        class="input-field" name="indv" id="ind" placeholder="000-00000000" /></label>
-                <label><span>addres</span><input type="text" class="tel-number-field" name="dis" id="dis"
-                        maxlength="4" />-<input type="text" class="tel-number-field" name="block" id="block"
-                        maxlength="4" />-<input type="text" class="tel-number-field" name="home" id="home"
-                        maxlength="10000" /></label>
+                <label for="field2"><span>Invidual Number <span class="required">*</span></span><input type="text"
+                        class="input-field" name="indv" id="ind" placeholder="000-00000000"
+                        oninput="ChecindevaiualUserByRegExp()" /></label>
+                <label><span>Address</span><input type="text" class="tel-number-field" name="dis" id="dis" maxlength="4"
+                        oninput=" CheckdistractByRegExp()" placeholder="D"/>-<input type="text" class="tel-number-field" name="block"
+                        id="block" maxlength="4" oninput="CheckblockForUserByRegExp()" placeholder="B" />-<input type="text"
+                        class="tel-number-field" name="home" id="home" maxlength="10000"
+                        oninput="CheckhomeForUserByRegExp()" placeholder="H" /></label>
 
                 <label for="field4"><span>Regarding</span><select name="reg" class="select-field" id="reg_list">
                         <option value="Blumont">Blumont</option>
@@ -156,11 +41,12 @@
                         <option value="Pwf">Pwf</option>
                     </select></label>
 
-                <label for="field5"><span>Message <span class="required">*</span></span><textarea name="msg"
-                        class="textarea-field" id="massege"></textarea></label>
+                <label for="field5"><span>Message <span class="required">*</span></span><textarea name="msg" rows="35"
+                        class="textarea-field" id="massege" oninput=" ChecmassegeFromUserRegExp()"
+                        placeholder="يجب كتابة مالا يقل عن خمس واربعين حرفاً"></textarea></label>
 
-                <button onclick="send_data()"> send </button>
-                </div>
+                <button id="butSend" onclick="send_data()"> send </button>
+            </div>
         </div>
     </div>
 

@@ -1,18 +1,18 @@
 if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
     window.location.href = "../login/login.html";
 }
-
-let newNews = document.getElementById('newNews')
-let deloge = document.getElementById('deloge')
-let spanVald = document.getElementById('spanVald')
-
 function logout() {
     localStorage.removeItem('token')
     window.location.href = '../login/login.html'
 }
+let URL = 'http://localhost:3000/'
+let newNews = document.getElementById('newNews')
+let deloge = document.getElementById('deloge')
+let spanVald = document.getElementById('spanVald')
+
 
 // let URL = 'https://complaint-campz.herokuapp.com/'
-let URL = 'http://localhost:3000/'
+
 
 let header = new Headers();
 header.append('content-type', 'application/json');
