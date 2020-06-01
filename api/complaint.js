@@ -10,10 +10,10 @@ const
         get_search_from_Database,
         get_All_News_from_Database,
         Send_news_To_Database,
-        Send_Login_To_Database,
+        get_color_number,
         Delete_N_Database,
         get_ALL_search_from_Database,
-        check_email
+        put_new_color
     } = require('../compliantRepo/repo')
 
 
@@ -54,8 +54,9 @@ app.post("/", (req, res) => {
     let reg = req.body.reg;
     let message = req.body.message;
     let ind = req.body.ind;
+    let color = 0
     console.log(name, phone, casenumber, dis, block, home, reg, message);
-    Send_To_Database(name, phone, casenumber, dis, block, home, reg, message, ind, (errore, succsessSend) => {
+    Send_To_Database(name, phone, casenumber, dis, block, home, reg, message, ind,color, (errore, succsessSend) => {
         if (errore) {
             console.log(errore)
             res.sendStatus(400)
@@ -156,6 +157,27 @@ Delete_N_Database(id , (error , result)=>{
         console.log(result)
     }
 })
+})
+
+app.put('/ChangeColor/:id' , (req , res)=>{
+    let id = req.params.id;
+    put_new_color(id , (error , ChangeSuccess)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send({ChangeSuccess:ChangeSuccess , status : 201})
+        }
+    })
+})
+
+app.get('/getelement' , (req , res)=>{
+    get_color_number((error , result)=>{
+        if(error){
+console.log(error)
+        }else{
+            res.send(result)
+        }
+    })
 })
 
 
