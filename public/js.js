@@ -1,5 +1,6 @@
 let reg_list = document.getElementById('reg_list')
-let URL = 'https://complaint-campz.herokuapp.com/'
+// let URL = 'https://complaint-campz.herokuapp.com/'
+let URL = 'http://localhost:3000/'
 /*****************************************************************/
 let nameForUser = document.getElementById('name')
 let PhoneForUser = document.getElementById('phone')
@@ -10,9 +11,9 @@ let blockForUser = document.getElementById('block')
 let homeForUser = document.getElementById('home')
 let massegeFromUser = document.getElementById('massege')
 /************************************************************/
-var valdUserName= /[a-z0-9]+ +[a-z0-9] +[a-z0-9]/;
+var valdUserName= /[a-z]+ +[a-z]+ +[a-z]/;
 function checkUsernameReqEx(){
-    if (valdUserName.test(nameForUser.value)===true){
+    if (valdUserName.test(nameForUser.value)==true){
         nameForUser.style.border = '1px solid green';
     }else{
         nameForUser.style.border='2px solid red';
@@ -126,20 +127,6 @@ let block = document.getElementById('block')
 let home = document.getElementById('home')
 let massege = document.getElementById('massege')
 /************************************************************/
-var valdUserName =/[a-z0-9] +[a-z0-9] +[a-z0-9]/;
-function checkUsernameReqEx(){
-    if (valdUserName.test(namee.value)===true){
-        namee.style.border = '1px solid green';
-    }else{
-        namee.style.border='2px solid red';
-    }
-};
-
-
-
-
-/***********************************************************/
-
 console.log(casee.value,massege.value)
     fetch(URL , {
         method : 'post',
@@ -158,7 +145,11 @@ console.log(casee.value,massege.value)
     }).then(re=>{
         return re.json();
     }).then(data=>{
-        console.log(data)
+        if(data.status == 400){
+            alert('fix your information')
+        }else{
+            alert('تم ارسال طلبك بنجاح')
+        }
     })
 }
 

@@ -42,6 +42,10 @@ console.log(token)
     })
 })
 
+var valdUserName= /^[a-z]+ +[a-z]+ +[a-z]/;
+var phoneRGEX = /^[\+]?[0-9]{2}[)]?[" "\s\.]?[0-9]{4}[" "\s\.]?[0-9]{4,6}$/im
+ var CaseNumberForUserRGEX = /^[0-9]{3}[\-]?[0-9]{2}?[C]?[0-9]{5}$/im
+var indevaiualUserRGEX = /^[0-9]{3}[\-]?[0-9]{8}$/im
 
 app.post("/", (req, res) => {
     // console.log(req.body)
@@ -56,6 +60,10 @@ app.post("/", (req, res) => {
     let ind = req.body.ind;
     let color = 0
     console.log(name, phone, casenumber, dis, block, home, reg, message);
+
+if(valdUserName.test(name) == true && phoneRGEX.test(phone) == true && CaseNumberForUserRGEX.test(casenumber)==true
+   && dis !== '' && block !== '' && home !== '' && message.length > 40 && indevaiualUserRGEX.test(ind) == true) {
+
     Send_To_Database(name, phone, casenumber, dis, block, home, reg, message, ind,color, (errore, succsessSend) => {
         if (errore) {
             console.log(errore)
@@ -65,6 +73,11 @@ app.post("/", (req, res) => {
             console.log(succsessSend)
         }
     })
+
+   }else{
+       res.send({status : 400})
+   }
+
 })
 
 app.get('/leftList', (req, res) => {
