@@ -113,7 +113,7 @@ header.append('content-type' , 'application/json')
                         localStorage.setItem('id', id)
                         get_all();
                         ChangeColor();
-                        // select_color();
+                        select_color();
                     })
                 }
             })
@@ -182,25 +182,25 @@ header.append('content-type' , 'application/json')
                     </div>`
                 }
 
-                for (let i = 0; i < data.length; i++) {
-
+                // for (let i = 0; i < data.length; i++) {
                     for (let i = 0; i < elemnts.length; i++) {
-                        elemnts[i].addEventListener('click', e => {
-                            elemnts[i].style.backgroundColor = 'black'
-                            let id = elemnts[i].getAttribute("id")
-                            console.log(id)
-                            localStorage.setItem('id', id)
-                            get_all();
-                            ChangeColor();
-                        })
-                    }
+                    elemnts[i].addEventListener('click', e => {
+                        // elemnts[i].style.backgroundColor = 'black'
+                        let id = elemnts[i].getAttribute("id")
+                        console.log(id)
+                        // localStorage.setItem('id', id)
+                        get_all();
+                        ChangeColor();
+                        select_color();
+                    })
                 }
+                // }
             })
         }
 
 
         function get_search_information() {
-            let id = localStorage.getItem('io');
+            let id = localStorage.getItem('id');
             fetch(URL + 'searche/' + id, {
                 method: 'get'
             }).then(re => {
