@@ -183,6 +183,18 @@ app.put('/ChangeColor/:id' , (req , res)=>{
     })
 })
 
+
+app.put('/ChangeColore/:id' , (req , res)=>{
+    let id = req.params.id;
+    put_new_color(id , (error , ChangeSuccess)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send({ChangeSuccess:ChangeSuccess , status : 201})
+        }
+    })
+})
+
 app.get('/getelement' , (req , res)=>{
     get_color_number((error , result)=>{
         if(error){

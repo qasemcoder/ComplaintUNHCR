@@ -39,22 +39,22 @@
                 </div>
                 <div id="content">
                     <div class="name">
-                        <label>Name:</label><span>MOhammad</span>
+                        <label>Name:</label><span></span>
                     </div>
                     <div class="phone">
-                        <label>phone:   </label><span>0799099213</span>
+                        <label>phone:   </label><span></span>
                     </div>
                     <div class="cn">
-                        <label>case Number :</label><span>0799099213</span>
+                        <label>case Number :</label><span></span>
                     </div>
                     <div class="in">
-                        <label>invidual Number :</label><span>645-85465465</span>
+                        <label>invidual Number :</label><span></span>
                     </div>
                     <div class="ad">
-                        <label>Address :</label><span>in holes</span>
+                        <label>Address :</label><span></span>
                     </div>
                     <div class="re">
-                        <label>Regarding :   </label><span>fuck</span>
+                        <label>Regarding :   </label><span></span>
                     </div>
                     <div class="me">
                         <label>Message  :</label>
@@ -103,7 +103,7 @@ header.append('content-type' , 'application/json')
                 <p>${data[i].name}</p>
                 <p>${data[i].ind}</p>
             </div>`
-
+            select_color();
                 }
                 for (let i = 0; i < elemnts.length; i++) {
                     elemnts[i].addEventListener('click', e => {
@@ -180,6 +180,8 @@ header.append('content-type' , 'application/json')
                         <p>${data[i].name}</p>
                         <p>${data[i].ind}</p>
                     </div>`
+                    ChangeColorSearch();
+                    select_color();
                 }
 
                 // for (let i = 0; i < data.length; i++) {
@@ -188,9 +190,9 @@ header.append('content-type' , 'application/json')
                         // elemnts[i].style.backgroundColor = 'black'
                         let id = elemnts[i].getAttribute("id")
                         console.log(id)
-                        // localStorage.setItem('id', id)
+                        localStorage.setItem('io', id)
                         get_all();
-                        ChangeColor();
+                        ChangeColorSearch();
                         select_color();
                     })
                 }
@@ -200,7 +202,7 @@ header.append('content-type' , 'application/json')
 
 
         function get_search_information() {
-            let id = localStorage.getItem('id');
+            let id = localStorage.getItem('io');
             fetch(URL + 'searche/' + id, {
                 method: 'get'
             }).then(re => {
@@ -238,6 +240,20 @@ function ChangeColor() {
     })
     select_color();
 }
+
+function ChangeColorSearch() {
+    let id = localStorage.getItem('io')
+    fetch(URL + 'ChangeColore/'+id ,{
+        method : 'put',
+        headers : header
+    }).then(re=>{
+        return re.json()
+    }).then(data=>{
+        console.log(data)
+    })
+    select_color();
+}
+
 
 function select_color() {
     fetch(URL + 'getelement' ,{
