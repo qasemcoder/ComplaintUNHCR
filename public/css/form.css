@@ -4,6 +4,40 @@
     padding: 20px;
     margin-right: 40px;
 }
+.deloge {
+    border: 2px solid green;
+    border-radius: 10px;
+    width: 40%;
+    height: 40%;
+    background: white;
+    position: absolute;
+    opacity: 0.4;
+    visibility: visible;
+    margin: 10%;
+    margin-top: -400px;
+    margin-left: 35%;
+    display: none;
+}
+
+.deloge :nth-child(1) {
+    text-align: center;
+    text-decoration-color: red;
+    margin: 33.33%;
+    margin-left: -25%;
+    margin-top: 6%;
+    position: absolute;
+    font-size: 3rem;
+    width: 100%;
+    font-style: oblique;
+}
+
+.deloge :nth-child(2) {
+    font-size: 41px;
+    margin-left: 93%;
+    z-index: +12;
+    opacity: 11;
+    cursor: pointer;
+}
 
 #imageSlid {
     margin-left: 2%;

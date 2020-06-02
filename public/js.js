@@ -146,9 +146,13 @@ console.log(casee.value,massege.value)
         return re.json();
     }).then(data=>{
         if(data.status == 400){
-            alert('fix your information')
+            deloge.style.display = 'block';
+                spanVald.innerHTML = 'هناك خطأ';
+                // newNews.value = ''
         }else{
-            alert('تم ارسال طلبك بنجاح')
+            deloge.style.display = 'block';
+            spanVald.innerHTML = 'تم ارسال الشكوى';
+            // newNews.value = ''
         }
     })
 }
@@ -158,4 +162,9 @@ reg_list.addEventListener('change', op)
 function op(e){
     let mm = e.target.value;
     localStorage.setItem('reg' , mm)
+}
+
+
+function closeMess() {
+    deloge.style.display = 'none';
 }
