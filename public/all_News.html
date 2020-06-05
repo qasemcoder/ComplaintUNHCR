@@ -5,20 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./useImage/icon.jpg" type="image/x-icon">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>All News</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <button id="butLog" onclick="logout()"> LogOut </button>
-    <button id="backHome" onclick="location.href='../admin'">Back To Home</button>
+    <header>
+        
+        <button id="backHome" onclick="location.href='../'">Home</button>
+        <button onclick="showMess()"> Add News </button>
+        <button id="butLog" onclick="logout()" style="float: right; margin-right: 30px;"> Log Out </button>
+       
+    </header>
+    
+    <div class="addNewNews" id="AddNews">
+        <span class="close" onclick="closeMess()">×</span>
+    <P> Add News </P>
+        <textarea name="newNews" id="newNews" cols="30" rows="10"></textarea>
+        <button id="but" onclick="send_news()"><b>ADD</b></button>
+    </div>
+
+
     <span id="spanInfo">You Dont Have any News</span>
     <div id="contente">
     
-
-
-
     </div>
 
     <script src="./js/all_News.js">

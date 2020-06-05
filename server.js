@@ -22,9 +22,7 @@ app.get( '/admin', (req, res, next) => {
 app.get( '/login', (req, res, next) => {
     res.sendFile(__dirname + '/public/Login/login.html');
 })
-app.get( '/addnews', (req, res, next) => {
-    res.sendFile(__dirname + '/public/formNews.html');
-})
+
 app.get( '/editnews', (req, res, next) => {
     res.sendFile(__dirname + '/public/all_News.html');
 })
