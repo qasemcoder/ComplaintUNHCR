@@ -106,9 +106,9 @@ function send_news() {
                 spanVald.innerHTML = 'Done Insert New News';
                 newNews.value = ''
             } else {
-                // deloge.style.display = 'block';
-                // spanVald.innerHTML = 'Wrong';
-                // newNews.value = ''
+                deloge.style.display = 'block';
+                spanVald.innerHTML = 'Wrong';
+                newNews.value = ''
             }
         })
     }
