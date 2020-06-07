@@ -9,30 +9,27 @@
 </head>
 
 <body>
-<div id="b">
-</div>
+    <div id="b">
+    </div>
     <script>
-       
-        let body=document.getElementById("b")
+        let body = document.getElementById("b")
         // if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
         //    window.location.href = "../login/login.html";
         // }else{
-            body.innerHTML=` <header class="header">
-        <h1 class="title">ComplaintUn</h1>
+        body.innerHTML = ` <header class="header">
+            <img src="./useImage/image2.png" title="imgUser" id="imgUser" class="imgUser" srcset="">
+            <h1 class="title">Complaint UNHCR</h1>
         <a href="./home.html" class="linkHome">Home</a>
-        <a href="./formNews.html" class="linkForm">ADD New News</a>
         <a href="./all_News.html" class="linkAllNews">View All News</a>
     </header>
     <div class="body" id="body">
         <div class="list-div">
             <button onclick="get_name_ind()" class="btn2">All</button>
-
             <div class="tool">
                 <input type="search" id="search" class="search">
                 <button class="btn1" onclick="get_search()">search</button>
             </div>
             <div class="items" id="for">
-
             </div>
         </div>
         <div class="data">
@@ -45,13 +42,13 @@
                         <label>Name:</label><span></span>
                     </div>
                     <div class="phone">
-                        <label>phone:   </label><span></span>
+                        <label>Phone  : &nbsp;  </label><span></span>
                     </div>
                     <div class="cn">
-                        <label>case Number :</label><span></span>
+                        <label>C_Number :</label><span></span>
                     </div>
                     <div class="in">
-                        <label>invidual Number :</label><span></span>
+                        <label>Ind_Number :</label><span></span>
                     </div>
                     <div class="ad">
                         <label>Address :</label><span></span>
@@ -60,24 +57,21 @@
                         <label>Regarding :   </label><span></span>
                     </div>
                     <div class="me">
-                        <label>Message  :</label>
+                       
                         <br>
-                        <textarea disabled id="" class="text">
-                    
+                        <textarea disabled id="" class="text"  placeholder="Hello">
                 </textarea>
+                <span class="headerMessag">Complaint message</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>`
-        // }
 
         function logout() {
-         localStorage.removeItem('token')
+            localStorage.removeItem('token')
             window.location.href = '../login/login.html'
         }
-
-
         let search = document.getElementById('search');
         let list = document.getElementById('for');
         let name_left = document.getElementById('name-left');
@@ -87,11 +81,11 @@
         let content = document.getElementById('content')
         // let URL = 'https://complaint-campz.herokuapp.com/'
         let URL = 'http://localhost:3000/'
-let header = new Headers()
-header.append('content-type' , 'application/json')
-
+        let header = new Headers()
+        header.append('content-type', 'application/json')
         get_name_ind();
         select_color();
+
         function get_name_ind() {
             list.innerHTML = ""
             fetch(URL + 'leftList', {
@@ -100,13 +94,12 @@ header.append('content-type' , 'application/json')
                 return re.json()
             }).then(data => {
                 console.log(data)
-
                 for (let i = 0; i < data.length; i++) {
                     list.innerHTML += `<div class="item" id = "${data[i].id}">
                 <p>${data[i].name}</p>
                 <p>${data[i].ind}</p>
             </div>`
-            select_color();
+                    select_color();
                 }
                 for (let i = 0; i < elemnts.length; i++) {
                     elemnts[i].addEventListener('click', e => {
@@ -133,32 +126,32 @@ header.append('content-type' , 'application/json')
                 for (let i = 0; i < data.length; i++) {
                     content.innerHTML = `
                     <div class="name">
-                        <label>Name:</label><span>${data[i].name}</span>
+                        <label>Name :&nbsp;</label><span>${data[i].name}</span>
                     </div>
                     <div class="phone">
-                        <label>phone:</label><span>${data[i].phone}</span>
+                        <label>Phone  :&nbsp;</label><span>${data[i].phone}</span>
                     </div>
                     <div class="cn">
-                        <label>case Number :</label><span>${data[i].casenumber}</span>
+                        <label>C_Number :&nbsp;</label><span>${data[i].casenumber}</span>
                     </div>
                     <div class="in">
-                        <label>invidual Number :</label><span>${data[i].ind}</span>
+                        <label>Inv_Number :&nbsp;</label><span>${data[i].ind}</span>
                     </div>
                     <div class="ad">
-                        <label>Address :</label><span>${data[i].block}</span>
+                        <label>Address :&nbsp;</label><span>D${data[i].block}-B${data[i].block}-H${data[i].home}</span>
                     </div>
                     <div class="re">
-                        <label>Regarding :</label><span>${data[i].reg}</span>
+                        <label>Regarding :&nbsp;</label><span>${data[i].reg}</span>
                     </div>
                     <div class="me">
-                        <label>Message  :</label>
+                       
                         <br>
                         <textarea disabled id="" class="text">
                             ${data[i].message}
                     </textarea>
-                    </div>
-                `
+                    <span class="headerMessag">Complaint message</span>
 
+                    </div>`
                 }
             })
         }
@@ -167,7 +160,6 @@ header.append('content-type' , 'application/json')
                 get_search();
             }
         })
-
 
         function get_search() {
             list.innerHTML = '';
@@ -186,9 +178,8 @@ header.append('content-type' , 'application/json')
                     ChangeColorSearch();
                     select_color();
                 }
-
                 // for (let i = 0; i < data.length; i++) {
-                    for (let i = 0; i < elemnts.length; i++) {
+                for (let i = 0; i < elemnts.length; i++) {
                     elemnts[i].addEventListener('click', e => {
                         // elemnts[i].style.backgroundColor = 'black'
                         let id = elemnts[i].getAttribute("id")
@@ -202,7 +193,6 @@ header.append('content-type' , 'application/json')
                 // }
             })
         }
-
 
         function get_search_information() {
             let id = localStorage.getItem('io');
@@ -224,56 +214,52 @@ header.append('content-type' , 'application/json')
                 ind : <span id="ind">${data[i].ind}</span><br><br>
                 reg : <span id="reg">${data[i].reg}</span><br><br>
             the complaint : <span id="complaint">${data[i].message}</span>
-            </div>
-                `
-
+            </div> `
                 }
             })
         }
 
-function ChangeColor() {
-    let id = localStorage.getItem('id')
-    fetch(URL + 'ChangeColor/'+id ,{
-        method : 'put',
-        headers : header
-    }).then(re=>{
-        return re.json()
-    }).then(data=>{
-        console.log(data)
-    })
-    select_color();
-}
+        function ChangeColor() {
+            let id = localStorage.getItem('id')
+            fetch(URL + 'ChangeColor/' + id, {
+                method: 'put',
+                headers: header
+            }).then(re => {
+                return re.json()
+            }).then(data => {
+                console.log(data)
+            })
+            select_color();
+        }
 
-function ChangeColorSearch() {
-    let id = localStorage.getItem('io')
-    fetch(URL + 'ChangeColore/'+id ,{
-        method : 'put',
-        headers : header
-    }).then(re=>{
-        return re.json()
-    }).then(data=>{
-        console.log(data)
-    })
-    select_color();
-}
+        function ChangeColorSearch() {
+            let id = localStorage.getItem('io')
+            fetch(URL + 'ChangeColore/' + id, {
+                method: 'put',
+                headers: header
+            }).then(re => {
+                return re.json()
+            }).then(data => {
+                console.log(data)
+            })
+            select_color();
+        }
 
-
-function select_color() {
-    fetch(URL + 'getelement' ,{
-        method : 'get'
-    }).then(re=>{
-        return re.json()
-    }).then(data=>{
-        console.log(data)
-            for (let i = 0; i < elemnts.length; i++) {
-                if(data[i].color == 1){
-                        elemnts[i].style.backgroundColor = 'black'
+        function select_color() {
+            fetch(URL + 'getelement', {
+                method: 'get'
+            }).then(re => {
+                return re.json()
+            }).then(data => {
+                console.log(data)
+                for (let i = 0; i < elemnts.length; i++) {
+                    if (data[i].color == 1) {
+                        elemnts[i].style.backgroundColor = 'gray'
+                    }
                 }
-                }
-        
-    })
-}
 
+            })
+        }
     </script>
 </body>
 

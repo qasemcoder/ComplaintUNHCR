@@ -76,7 +76,6 @@ function delet(id) {
    
 }
 
-
 let header = new Headers();
 header.append('content-type', 'application/json');
 
@@ -107,9 +106,9 @@ function send_news() {
                 spanVald.innerHTML = 'Done Insert New News';
                 newNews.value = ''
             } else {
-                deloge.style.display = 'block';
-                spanVald.innerHTML = 'Wrong';
-                newNews.value = ''
+                // deloge.style.display = 'block';
+                // spanVald.innerHTML = 'Wrong';
+                // newNews.value = ''
             }
         })
     }

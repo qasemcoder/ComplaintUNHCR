@@ -3,33 +3,46 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     transition: 0.2s;
 }
-
-::-webkit-scrollbar {
+::-webkit-scrollbar{
     background-color: rgb(155, 155, 155);
     width: 10px;
 }
-
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb{
     background-color: rgb(73, 73, 73);
     border-radius: 100px;
 }
-
-.header {
+.header{
     height: 50px;
-    background-color: #3D5AFE;
-    box-shadow: 2px 2px 5px 2px rgb(17, 17, 17);
-    position: relative;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+}
+.headerMessag{
+    margin-left: 7.1vw;
+    margin-top: -335px;
+    position: absolute;
+    background: black;
+    color: white;
+    width: 41.8vw;
+    height: 2.5vw;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 2px 4px 2px 4px;
+}
+.imgUser{
+    border-radius: 100%;
+    float: right;
+    width: 35px;
+    height: 35px;   
+    margin-right: 15px;
+    margin-top: 6px;
+}
+#content{
+    color: #fff;
 }
 .linkHome{
-    text-decoration: none;
-    margin-left: 17%;
-    margin-top: -26px;
-    position: fixed;
-    color: white;
-    align-items: center;
-    font-size: 24px;
-}
-.linkForm{
     text-decoration: none;
     margin-left: 24%;
     margin-top: -26px;
@@ -37,62 +50,68 @@
     color: white;
     align-items: center;
     font-size: 24px;
+    width: 6%;
+    height: 35px;
+    justify-content: center;
+    text-align: center;
 }
+
 .linkAllNews{
     text-decoration: none;
-    margin-left: 38%;
+    margin-left: 33%;
     margin-top: -26px;
     position: fixed;
     color: white;
     align-items: center;
     font-size: 24px;
 }
-
-.title {
+.title{
     color: white;
     position: relative;
-    left: 10px;
+    margin-left:10px;
     top: 5px;
     width: 40%;
 }
-
-.data {
+.data{
     height: 100vh;
     width: 70%;
     float: right;
 }
-
-.list-div {
+.list-div{
     height: 100vh;
-    background-color: #536DFE;
+    background: linear-gradient(to bottom right ,black,rgb(75, 9, 9));
+    overflow: hidden;
+    position: fixed;
+    top: 11vh;
     width: 30%;
-    float: right;
+    margin-left: 70vw;
+    border-radius: 25px 0px 0px 0px;
 }
-
-.search {
+.search{
     width: 70%;
     font-size: larger;
     border: 0px;
     margin-top: 10px;
-    margin-left: 1.5vw;
+    margin-left: lpx solid.5vw;
     background-color: rgb(255, 255, 255);
     color: black;
     box-shadow: 2px 2px 10px 1px rgb(58, 57, 57);
 }
-
-.btn1 {
+.btn1{
     height: 25px;
     border: 0px;
-    background-color: rgb(50, 123, 233);
+    background-color:#000;
+    margin-top: 9px;
+    margin-left: 3px;
     color: white;
+    position: absolute;
+    box-shadow: 2px 2px 10px 1px rgb(58, 57, 57);
 }
-
-.btn1:hover {
+.btn1:hover{
     cursor: pointer;
     background-color: rgb(13, 131, 199);
 }
-
-.list {
+.list{
     border: 2px solid white;
     width: 80%;
     margin-top: 20px;
@@ -100,17 +119,16 @@
     box-shadow: 2px 2px 10px 1px rgb(58, 57, 57);
     margin-left: 3vw;
 }
-
-.item {
+.item{
     cursor: pointer;
     text-align: center;
-    color: white;
+    color: #000;
     padding: 7px;
     border-bottom: 1px solid white;
-    background-color: #8C9EFF;
+    background-color: #fff;
+    border: 1px solid;
 }
-
-.tool {
+.tool{
     background-color: rgb(255, 255, 255);
     height: 50px;
     width: 70%;
@@ -119,109 +137,100 @@
     border-radius: 5px;
     box-shadow: 2px 2px 10px 1px rgb(58, 57, 57);
 }
-
-.item:hover {
+.item:hover{
     cursor: pointer;
     box-shadow: 2px 2px 10px 1px rgb(58, 57, 57);
     position: relative;
-    background-color: rgb(25, 118, 240);
+    background-color: rgb(215, 118, 240);
 }
-
-.items {
+.items{
     margin-top: 10px;
     overflow: hidden;
     overflow-y: scroll;
-    height: 87vh;
+    height: 73vh;
     width: 27vw;
-    position: relative;
-    left: 1.5vw;
+    margin-left: 20px;
+    margin-top: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: #536DFE;
-    ;
+    background-color:#536DFE;
     box-shadow: 2px 2px 10px 1px rgb(58, 57, 57);
 }
-
-.form {
+.form{
     width: 60vw;
     height: 90vh;
-    position: relative;
+    position: fixed;
     left: 5vw;
+    margin-top: 4vw;
     overflow: hidden;
     top: 3vh;
     border-radius: 5px;
-    background-color: rgb(141, 175, 226);
+    background: linear-gradient(to bottom right ,black, rgb(49, 17, 17),black);
     box-shadow: 2px 2px 10px 1px rgb(58, 57, 57);
 }
-
-.header-p {
-    background-color: rgb(41, 132, 223);
+.header-p{
+    background-color:black;
+    color: #fff;
     text-align: center;
+    height: 2.5vw;
     font-size: 30px;
     box-shadow: 2px 2px 10px 1px rgb(58, 57, 57);
 }
-
-.name {
+.name{
+    font-size: 20px;
+    margin-left:10px;
+    margin-top: 20px;
+ 
+}
+.phone{
     font-size: 20px;
     width: 50%;
-    float: left;
-    margin-top: 20px;
+    margin-left: 64%;
+    margin-top: -18px;
 }
-
-.phone {
+.cn{
     font-size: 20px;
     width: 50%;
-    float: left;
-    margin-top: 20px;
+    margin-left: 64%;
+    margin-top: 25px;
 }
-
-.cn {
+.in{
     font-size: 20px;
     width: 50%;
-    float: left;
-    margin-top: 20px;
-}
-
-.in {
-    font-size: 20px;
-    width: 50%;
-    float: left;
-    margin-top: 20px;
-}
-
-.ad {
-    font-size: 20px;
-    width: 50%;
-    float: left;
-    margin-top: 20px;
-}
-
-.re {
-    font-size: 20px;
-    width: 50%;
-    float: left;
-    margin-top: 20px;
-}
-
-.me {
-    font-size: 20px;
-    width: 50%;
-    float: left;
-    margin-top: 20px;
-}
-
-.text {
-    margin-top: 10px;
+    margin-top: -15px;
     margin-left: 10px;
+}
+.ad{
+    font-size: 20px;
+    width: 50%;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+.re{
+    font-size: 20px;
+    width: 50%;
+    margin-left: 64%;
+    margin-top: -22px;
+    position: absolute;
+}
+.me{
+    font-size: 20px;
+    width: 50%;
+    float: left;
+    margin-top: 20px;
+}
+.text{
+    margin-top: 10px;
+    margin-left: 98px;
     width: 40vw;
-    height: 50vh;
+    height: 47vh;
     font-size: 20px;
     resize: none;
+    padding: 10px;
 }
-
-.btn2 {
+.btn2{
     position: relative;
     top: 6vh;
     left: 1vw;

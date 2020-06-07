@@ -1,21 +1,38 @@
 var i = 0;
 var images = [];
 var time = 3000;
-
-images[0]='/images/image1.jpg'
-images[1]='/images/image3.jpg'
-images[2]='/images/image2.png'
-
-function changeImage(){
-    document.slider.src=images[i];
-    if(i<images.length-1){
-        i++;
-    }else{
-        i=0;
-    }
-    setTimeout("changeImage()",time);
+let Y = 700
+images[0] = '/images/1.jpg'
+images[1] = '/images/3.jpg'
+images[2] = '/images/2.jpg'
+let card = document.getElementsByClassName("img_dev")
+let cards = []
+for (let i = 0; i < card.length; i++) {
+    cards.push(card[i])
 }
-window.onload=changeImage;
+
+function changeImage() {
+    document.getElementById("img").src = images[i];
+    document.getElementById("img").style.transition = "0.5s"
+    if (i < images.length - 1) {
+        i++;
+    } else {
+        i = 0;
+    }
+    setTimeout("changeImage()", time);
+}
+window.onload = changeImage;
 
 
+window.document.addEventListener("scroll", e => {
+    if (window.scrollY >= Y) {
+        console.log(true)
 
+        cards.forEach((v) => {
+
+            v.setAttribute("class", "img_dev_An")
+
+        })
+
+    }
+})
