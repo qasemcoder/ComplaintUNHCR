@@ -14,8 +14,8 @@ let newNews = document.getElementById('newNews')
 let deloge = document.getElementById('deloge')
 let spanVald = document.getElementById('spanVald')
 let AddNews = document.getElementById('AddNews')
-// let URL = 'https://complaint-campz.herokuapp.com/'
-let URL = 'http://localhost:3000/'
+let URL = 'https://complaint-camp-za.herokuapp.com/'
+// let URL = 'http://localhost:3000/'
 get_all_News()
 
 function get_all_News() {

@@ -13,9 +13,9 @@
     </div>
     <script>
         let body = document.getElementById("b")
-        // if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
-        //    window.location.href = "../login/login.html";
-        // }else{
+            // if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
+            //    window.location.href = "../login/login.html";
+            // }else{
         body.innerHTML = ` <header class="header">
             <img src="./useImage/image2.png" title="imgUser" id="imgUser" class="imgUser" srcset="">
             <h1 class="title">Complaint UNHCR</h1>
@@ -79,8 +79,8 @@
         let elemnts = document.getElementsByClassName('item')
         let items = document.getElementsByClassName('liste')
         let content = document.getElementById('content')
-        // let URL = 'https://complaint-campz.herokuapp.com/'
-        let URL = 'http://localhost:3000/'
+            let URL = 'https://complaint-camp-za.herokuapp.com/'
+        // let URL = 'http://localhost:3000/'
         let header = new Headers()
         header.append('content-type', 'application/json')
         get_name_ind();

@@ -1,6 +1,6 @@
 let reg_list = document.getElementById('reg_list')
-// let URL = 'https://complaint-campz.herokuapp.com/'
-let URL = 'http://localhost:3000/'
+let URL = 'https://complaint-camp-za.herokuapp.com/'
+// let URL = 'http://localhost:3000/'
 /*****************************************************************/
 let nameForUser = document.getElementById('name')
 let PhoneForUser = document.getElementById('phone')
