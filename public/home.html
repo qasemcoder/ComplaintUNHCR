@@ -4,12 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./useImage/icon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./css/home.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/scrollhome.css">
+    <title>ComplainUNHCR</title>
 </head>
 
 <body>
-    
+    <div id="progressbar">
+
+    </div>
+    <div id="scrollpath"></div>
+    <section>
         <div class="body" id="body">
             <div class="header">
                 <marquee behavior="" direction="right" id="mar" onmouseover="this.stop()" onmouseout="this.start()">
@@ -134,9 +140,16 @@
             </div>
             <h2 class="text_alert" id="text_alert">No Internet</h2>
         </div>
-   
+    </section>
 
-    
+    <script>
+        let progress = document.getElementById("progressbar")
+        let totalheight = document.body.scrollHeight - window.innerHeight;
+        window.onscroll = function () {
+            let progrssHeight = (window.pageYOffset / totalheight) * 100;
+            progress.style.height = progrssHeight + "%"
+        }
+    </script>
     <script src="./js/slid.js"></script>
     <script>
         let content = document.getElementById('mar')
