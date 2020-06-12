@@ -1,7 +1,7 @@
 let reg_list = document.getElementById('reg_list')
 let URL = 'https://complaint-camp-za.herokuapp.com/'
 // let URL = 'http://localhost:3000/'
-/*****************************************************************/
+// /*****************************************************************/
 let nameForUser = document.getElementById('name')
 let PhoneForUser = document.getElementById('phone')
 let CaseNumberForUser = document.getElementById('casea')
@@ -143,8 +143,12 @@ console.log(casee.value,massege.value)
             reg : localStorage.getItem('reg')
         })
     }).then(re=>{
+        console.log(re)
         return re.json();
+        
     }).then(data=>{
+        
+        console.log(data)
         if(data.status == 400){
             deloge.style.display = 'block';
                 spanVald.innerHTML = 'هناك خطأ';
