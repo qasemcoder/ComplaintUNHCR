@@ -27,7 +27,7 @@ return re.json();
         }else{
             alert('ok man')
             localStorage.setItem('token' , data.token)
-            window.location.href = 'admin'
+            window.location.href = '/admin'
             // open('http://localhost:3000/admin')
         }
        })
