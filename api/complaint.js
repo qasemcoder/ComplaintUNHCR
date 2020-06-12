@@ -67,7 +67,7 @@ if(valdUserName.test(name) == true && phoneRGEX.test(phone) == true && CaseNumbe
     Send_To_Database(name, phone, casenumber, dis, block, home, reg, message, ind,color, (errore, succsessSend) => {
         if (errore) {
             console.log(errore)
-            res.sendStatus(400)
+            res.send({status : errore})
         } else {
             res.send(succsessSend)
             console.log(succsessSend)
