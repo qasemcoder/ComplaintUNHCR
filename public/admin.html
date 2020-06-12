@@ -13,9 +13,9 @@
     </div>
     <script>
         let body = document.getElementById("b")
-            // if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
-            //    window.location.href = "../login/login.html";
-            // }else{
+            if (localStorage.getItem('token') == undefined || localStorage.getItem('token') == null) {
+               window.location.href = "../login/login.html";
+            }else{
         body.innerHTML = ` <header class="header">
             <img src="./useImage/image2.png" title="imgUser" id="imgUser" class="imgUser" srcset="">
             <h1 class="title">Complaint UNHCR</h1>
@@ -67,7 +67,7 @@
             </div>
         </div>
     </div>`
-
+            }
         function logout() {
             localStorage.removeItem('token')
             window.location.href = '../login/login.html'

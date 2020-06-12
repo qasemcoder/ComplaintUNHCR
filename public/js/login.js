@@ -27,7 +27,8 @@ return re.json();
         }else{
             alert('ok man')
             localStorage.setItem('token' , data.token)
-            open('https://complaint-camp-za.herokuapp.com/admin')
+            window.location.href = 'admin'
+            // open('http://localhost:3000/admin')
         }
        })
 

@@ -62,7 +62,7 @@ app.post("/", (req, res) => {
     console.log(name, phone, casenumber, dis, block, home, reg, message);
 
 if(valdUserName.test(name) == true && phoneRGEX.test(phone) == true && CaseNumberForUserRGEX.test(casenumber)==true
-   && dis !== '' && block !== '' && home !== '' && message.length > 40 && indevaiualUserRGEX.test(ind) == true) {
+   && dis !== '' && block !== '' && home !== '' && indevaiualUserRGEX.test(ind) == true) {
 
     Send_To_Database(name, phone, casenumber, dis, block, home, reg, message, ind,color, (errore, succsessSend) => {
         if (errore) {
